@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/detalhes_eleitor_nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Paulo Alves" />
+
+
+    <TextView
+        android:id="@+id/detalhes_eleitor_endereco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/detalhes_eleitor_nome"
+        app:layout_constraintStart_toStartOf="@id/detalhes_eleitor_nome"
+        app:layout_constraintTop_toBottomOf="@id/detalhes_eleitor_nome"
+        tools:text="Rua 1008, 140" />
+
+    <TextView
+        android:id="@+id/detalhes_eleitor_setor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/detalhes_eleitor_endereco"
+        app:layout_constraintStart_toStartOf="@id/detalhes_eleitor_endereco"
+        app:layout_constraintTop_toBottomOf="@id/detalhes_eleitor_endereco"
+        tools:text="Bueno" />
+
+    <TextView
+        android:id="@+id/detalhes_eleitor_telefone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/detalhes_eleitor_setor"
+        app:layout_constraintStart_toStartOf="@id/detalhes_eleitor_setor"
+        app:layout_constraintTop_toBottomOf="@id/detalhes_eleitor_setor"
+        tools:text="123456789" />
+
+    <TextView
+        android:id="@+id/detalhes_eleitor_data_nascimento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/detalhes_eleitor_telefone"
+        app:layout_constraintStart_toStartOf="@id/detalhes_eleitor_telefone"
+        app:layout_constraintTop_toBottomOf="@id/detalhes_eleitor_telefone"
+        tools:text="01/01/2000" />
+
+    <TextView
+        android:id="@+id/detalhes_eleitor_colegio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/detalhes_eleitor_data_nascimento"
+        app:layout_constraintStart_toStartOf="@id/detalhes_eleitor_data_nascimento"
+        app:layout_constraintTop_toBottomOf="@id/detalhes_eleitor_data_nascimento"
+        tools:text="Pré-universitário" />
+
+    <TextView
+        android:id="@+id/detalhes_eleitor_observacao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@id/detalhes_eleitor_colegio"
+        app:layout_constraintStart_toStartOf="@id/detalhes_eleitor_colegio"
+        app:layout_constraintTop_toBottomOf="@id/detalhes_eleitor_colegio"
+        tools:text="-" />
+
+    <Button
+        android:id="@+id/detalhes_eleitor_editar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/editar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
