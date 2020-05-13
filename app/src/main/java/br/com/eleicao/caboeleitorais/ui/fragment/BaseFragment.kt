@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.eleicao.caboeleitorais.NavGraphDirections
 import br.com.eleicao.caboeleitorais.R
+import br.com.eleicao.caboeleitorais.ui.activity.MainActivity
 import br.com.eleicao.caboeleitorais.ui.viewmodel.LoginViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -22,13 +24,13 @@ abstract class BaseFragment : Fragment() {
         verificaSeEstaLogado()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.menu_principal, menu)
+        inflater.inflate(R.menu.menu_principal, menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if(item?.itemId == R.id.menu_principal_deslogar){
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_principal_deslogar) {
             loginViewModel.desloga()
             vaiParaLogin()
         }

@@ -1,10 +1,7 @@
 package br.com.eleicao.caboeleitorais
 
 import android.app.Application
-import br.com.eleicao.caboeleitorais.di.daoModule
-import br.com.eleicao.caboeleitorais.di.testeDatabaseModule
-import br.com.eleicao.caboeleitorais.di.uiModule
-import br.com.eleicao.caboeleitorais.di.viewModelModule
+import br.com.eleicao.caboeleitorais.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -15,10 +12,11 @@ class AppApplication : Application() {
             androidContext(this@AppApplication)
             modules(
                 listOf(
-                    testeDatabaseModule,
+                    databaseModule,
                     daoModule,
                     uiModule,
-                    viewModelModule
+                    viewModelModule,
+                    serviceModule
                 )
             )
         }

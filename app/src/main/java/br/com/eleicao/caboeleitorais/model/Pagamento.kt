@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity(
     foreignKeys = [ForeignKey(
         entity = Eleitor::class,
-        parentColumns = ["id"],
+        parentColumns = ["codigo"],
         childColumns = ["produtoId"]
     )],
     indices = [Index("produtoId")]

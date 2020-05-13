@@ -10,9 +10,9 @@ import br.com.eleicao.caboeleitorais.model.Eleitor
 import kotlinx.android.synthetic.main.item_eleitor.view.*
 
 class EleitorAdapter(
-        private val context: Context,
-        private val eleitors: MutableList<Eleitor> = mutableListOf(),
-        var onItemClickListener: (eleitor: Eleitor) -> Unit = {}
+    private val context: Context,
+    private val eleitors: MutableList<Eleitor> = mutableListOf(),
+    var onItemClickListener: (eleitor: Eleitor) -> Unit = {}
 ) : RecyclerView.Adapter<EleitorAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,10 +30,10 @@ class EleitorAdapter(
         holder.vincula(eleitors[position])
     }
 
-    fun atualiza(produtosNovos: List<Eleitor>) {
+    fun atualiza(eleitoresNovos: List<Eleitor>) {
         notifyItemRangeRemoved(0, eleitors.size)
         eleitors.clear()
-        eleitors.addAll(produtosNovos)
+        eleitors.addAll(eleitoresNovos)
         notifyItemRangeInserted(0, eleitors.size)
     }
 
@@ -54,7 +54,8 @@ class EleitorAdapter(
 
         fun vincula(eleitor: Eleitor) {
             this.eleitor = eleitor
-            campoNome.text = eleitor.nome
+            val nome = "${eleitor.codigo} - ${eleitor.nome}"
+            campoNome.text = nome
             campoEndereco.text = eleitor.endereco
         }
 
