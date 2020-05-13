@@ -8,7 +8,7 @@
         android:id="@+id/listaEleitores"
         android:name="br.com.eleicao.caboeleitorais.ui.fragment.ListaEleitoresFragment"
         android:label="Lista de eleitores"
-        tools:layout="@layout/lista_eleitores" >
+        tools:layout="@layout/lista_eleitores">
         <action
             android:id="@+id/acao_listaEleitores_para_detalhesEleitor"
             app:destination="@id/detalhesEleitor"
@@ -16,12 +16,15 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/acao_listaEleitores_para_cadastroEleitorFragment"
+            app:destination="@id/cadastroEleitorFragment" />
     </fragment>
     <fragment
         android:id="@+id/detalhesEleitor"
         android:name="br.com.eleicao.caboeleitorais.ui.fragment.DetalhesEleitorFragment"
         android:label="Detalhes do eleitor"
-        tools:layout="@layout/detalhes_eleitor" >
+        tools:layout="@layout/detalhes_eleitor">
         <action
             android:id="@+id/acao_detalhesEleitor_para_pagamento"
             app:destination="@id/pagamento"
@@ -33,10 +36,11 @@
             android:name="produtoId"
             app:argType="long" />
     </fragment>
-    <fragment android:id="@+id/pagamento"
-        android:label="Editar eleitor"
+    <fragment
+        android:id="@+id/pagamento"
         android:name="br.com.eleicao.caboeleitorais.ui.fragment.PagamentoFragment"
-        tools:layout="@layout/pagamento">
+        android:label="Editar eleitor"
+        tools:layout="@layout/formulario_eleitor">
         <action
             android:id="@+id/acao_pagamento_para_listaEleitor"
             app:destination="@id/listaEleitores"
@@ -49,6 +53,15 @@
         <argument
             android:name="produtoId"
             app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastroEleitorFragment"
+        android:name="br.com.eleicao.caboeleitorais.ui.fragment.CadastroEleitorFragment"
+        android:label="Cadastrar eleitor"
+        tools:layout="@layout/formulario_eleitor" >
+        <action
+            android:id="@+id/acao_cadastroEleitorFragment_para_listaEleitores"
+            app:destination="@id/listaEleitores" />
     </fragment>
     <action
         android:id="@+id/acao_global_login"
@@ -95,5 +108,5 @@
         android:id="@+id/listaPagamentos"
         android:name="br.com.eleicao.caboeleitorais.ui.fragment.CadastroUsuarioFragment"
         android:label="Lista de pagamentos"
-        tools:layout="@layout/lista_pagamentos"/>
+        tools:layout="@layout/lista_pagamentos" />
 </navigation>

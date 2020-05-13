@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.eleicao.caboeleitorais.R
+import br.com.eleicao.caboeleitorais.model.Login
 import br.com.eleicao.caboeleitorais.ui.viewmodel.ComponentesVisuais
 import br.com.eleicao.caboeleitorais.ui.viewmodel.EstadoAppViewModel
 import br.com.eleicao.caboeleitorais.ui.viewmodel.LoginViewModel
@@ -16,9 +18,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
 
-    private val controlador by lazy {
-        findNavController()
-    }
+    private val controlador by lazy { findNavController() }
     private val viewModel: LoginViewModel by viewModel()
     private val estadoAppViewModel: EstadoAppViewModel by sharedViewModel()
 
@@ -37,14 +37,34 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         estadoAppViewModel.temComponentes = ComponentesVisuais()
-        login_botao_logar.setOnClickListener {
-            viewModel.loga()
-            vaiParaListaProdutos()
-        }
+        configuraBotaoLogin()
+        configuraBotaoCadastrarUsuario()
+        observaSeEstaLogado()
+    }
+
+    private fun observaSeEstaLogado() {
+        viewModel.isLogado.observe(viewLifecycleOwner, Observer { isLogado ->
+            if (isLogado) vaiParaListaProdutos()
+        })
+    }
+
+    private fun configuraBotaoCadastrarUsuario() {
         login_botao_cadastrar_usuario.setOnClickListener {
-            val direcao = LoginFragmentDirections
-                .acaoLoginParaCadastroUsuario()
-            controlador.navigate(direcao)
+            vaiParaCadastrarUsuario()
+        }
+    }
+
+    private fun vaiParaCadastrarUsuario() {
+        val direcao = LoginFragmentDirections.acaoLoginParaCadastroUsuario()
+        controlador.navigate(direcao)
+    }
+
+    private fun configuraBotaoLogin() {
+        login_botao_logar.setOnClickListener {
+            val id = login_usuario_text_id.text.toString()
+            val hash = login_usuario_text_senha.text.toString()
+            val login = Login(id, hash)
+            viewModel.login(login)
         }
     }
 

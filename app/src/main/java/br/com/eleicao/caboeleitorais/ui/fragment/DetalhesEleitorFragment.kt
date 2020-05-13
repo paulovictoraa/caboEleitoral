@@ -1,7 +1,9 @@
 package br.com.eleicao.caboeleitorais.ui.fragment
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -40,33 +42,32 @@ class DetalhesEleitorFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         estadoAppViewModel.temComponentes = ComponentesVisuais(appBar = true)
         buscaProduto()
-        configuraBotaoComprar()
     }
 
-    private fun configuraBotaoComprar() {
-        detalhes_eleitor_editar.setOnClickListener {
-            viewModel.produtoEncontrado.value?.let {
-                vaiParaPagamento()
-            }
-        }
-    }
+//    private fun configuraBotaoComprar() {
+//        detalhes_eleitor_editar.setOnClickListener {
+//            viewModel.produtoEncontrado.value?.let {
+//                vaiParaPagamento()
+//            }
+//        }
+//    }
 
-    private fun vaiParaPagamento() {
-        val direcao = DetalhesEleitorFragmentDirections
-            .acaoDetalhesEleitorParaPagamento(produtoId)
-        controlador.navigate(direcao)
-    }
+//    private fun vaiParaPagamento() {
+//        val direcao = DetalhesEleitorFragmentDirections
+//            .acaoDetalhesEleitorParaPagamento(produtoId)
+//        controlador.navigate(direcao)
+//    }
 
     private fun buscaProduto() {
-        viewModel.produtoEncontrado.observe(this, Observer {
+        viewModel.produtoEncontrado.observe(viewLifecycleOwner, Observer {
             it?.let { eleitor ->
                 detalhes_eleitor_nome.text = eleitor.nome
                 detalhes_eleitor_endereco.text = eleitor.endereco
                 detalhes_eleitor_setor.text = eleitor.setor
                 detalhes_eleitor_telefone.text = eleitor.telefone
-                detalhes_eleitor_data_nascimento.text = eleitor.data_nascimento
-                detalhes_eleitor_colegio.text = eleitor.colegio
-                detalhes_eleitor_observacao.text = eleitor.observacao
+                detalhes_eleitor_data_nascimento.text = eleitor.dataNascimento
+                detalhes_eleitor_colegio.text = eleitor.colegioDeVotacao ?: ""
+                detalhes_eleitor_observacao.text = eleitor.observacao ?: ""
             }
         })
     }

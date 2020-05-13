@@ -14,24 +14,36 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:textSize="24sp"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Paulo Alves" />
+        tools:text="1 - Paulo Alves" />
 
     <TextView
         android:id="@+id/item_eleitores_endereco"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/item_eleitores_nome"
-        app:layout_constraintStart_toStartOf="@id/item_eleitores_nome"
+        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@id/item_eleitores_nome"
         tools:text="Rua 1008, numero 140" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Endereço:"
+        app:layout_constraintStart_toStartOf="@+id/item_eleitores_nome"
+        app:layout_constraintTop_toBottomOf="@+id/item_eleitores_nome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
