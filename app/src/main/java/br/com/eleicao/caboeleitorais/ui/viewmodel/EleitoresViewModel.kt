@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.eleicao.caboeleitorais.extension.unaccent
 import br.com.eleicao.caboeleitorais.model.Eleitor
+import br.com.eleicao.caboeleitorais.model.Filtro
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,14 +32,29 @@ class EleitoresViewModel(private val repository: EleitorRepository) : ViewModel(
         }
     }
 
+    fun getEleitores() = eleitores.value ?: mutableListOf()
+
     fun filter(newText: String?): List<Eleitor> {
-        val eleitores = _eleitores.value ?: mutableListOf()
+        val eleitores = getEleitores()
         return if (newText.isNullOrEmpty()) {
             eleitores
         } else {
             val query = newText.toUpperCase(Locale.getDefault()).unaccent()
             eleitores.filter {
                 it.nome.toUpperCase(Locale.getDefault()).unaccent().contains(query)
+            }.toMutableList()
+        }
+    }
+
+    fun filter(filtro: Filtro): List<Eleitor> {
+        val eleitores = getEleitores()
+        val setor = filtro.setor
+        return if (setor.isEmpty()) {
+            eleitores
+        } else {
+            val query = setor.toUpperCase(Locale.getDefault()).unaccent()
+            eleitores.filter {
+                it.setor.toUpperCase(Locale.getDefault()).unaccent().contains(query)
             }.toMutableList()
         }
     }

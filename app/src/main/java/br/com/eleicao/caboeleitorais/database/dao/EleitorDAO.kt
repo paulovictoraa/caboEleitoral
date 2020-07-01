@@ -8,7 +8,7 @@ import androidx.room.Query
 import br.com.eleicao.caboeleitorais.model.Eleitor
 
 @Dao
-interface CadastradosDAO {
+interface EleitorDAO {
 
     @Query("SELECT * FROM Eleitor")
     fun buscaTodos(): List<Eleitor>

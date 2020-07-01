@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.eleicao.caboeleitorais.exception.LoginException
 import br.com.eleicao.caboeleitorais.model.Login
 import br.com.eleicao.caboeleitorais.repository.LoginRepository
 import kotlinx.coroutines.launch
@@ -12,14 +13,16 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
 
     private val _isLogado: MutableLiveData<Boolean> = MutableLiveData()
     val isLogado: LiveData<Boolean> = _isLogado
+    val onError: MutableLiveData<String> = MutableLiveData()
 
     fun login(login: Login) {
         viewModelScope.launch {
-            try{
+            try {
                 repository.login(login)
                 _isLogado.value = true
-            } catch (e: Exception) {
+            }  catch (e: Exception) {
                 _isLogado.value = false
+                onError.value = "Não foi possível autenticar"
             }
         }
     }

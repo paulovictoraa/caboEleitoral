@@ -6,12 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import br.com.eleicao.caboeleitorais.database.AppDatabase
-import br.com.eleicao.caboeleitorais.database.dao.CadastradosDAO
+import br.com.eleicao.caboeleitorais.database.dao.EleitorDAO
+import br.com.eleicao.caboeleitorais.database.dao.SetorDAO
+import br.com.eleicao.caboeleitorais.model.Eleitor
+import br.com.eleicao.caboeleitorais.model.Setor
 import br.com.eleicao.caboeleitorais.model.Token
 import br.com.eleicao.caboeleitorais.model.UsuarioInstance
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
 import br.com.eleicao.caboeleitorais.repository.LoginRepository
 import br.com.eleicao.caboeleitorais.repository.PagamentoRepository
+import br.com.eleicao.caboeleitorais.repository.SetorRepository
 import br.com.eleicao.caboeleitorais.service.CaboEleitoralService
 import br.com.eleicao.caboeleitorais.ui.fragment.DetalhesEleitorFragment
 import br.com.eleicao.caboeleitorais.ui.fragment.ListaEleitoresFragment
@@ -31,7 +35,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-private const val NOME_BANCO_DE_DADOS = "caboeleitorais.db"
+
 private const val NOME_BANCO_DE_DADOS_TESTE = "caboeleitorais-test.db"
 
 val testeDatabaseModule = module {
@@ -41,40 +45,55 @@ val testeDatabaseModule = module {
             AppDatabase::class.java,
             NOME_BANCO_DE_DADOS_TESTE
         ).fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
             .addCallback(object : RoomDatabase.Callback() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
                     CoroutineScope(IO).launch {
-                        val dao: CadastradosDAO by inject()
-//                        dao.salva(
-//                            Eleitor(
-//                                nome = "Paulo Victor Alexandre Alves",
-//                                endereco = "Rua 1121, número 99",
-//                                setor = "Marista",
-//                                telefone = "62992694928",
-//                                dataNascimento = "25/06/1996",
-//                                colegioDeVotacao = "CEJAT",
-//                                observacao = "Residência em frente a garagem da Nissan"
-//                            ),
-//                            Eleitor(
-//                                nome = "Jonelito Lenda",
-//                                endereco = "Lá no morro do universitário",
-//                                setor = "Quebra-caixote",
-//                                telefone = "62982954185",
-//                                dataNascimento = "15/06/1996",
-//                                colegioDeVotacao = "Playboy",
-//                                observacao = "Careca de tanta habilidade"
-//                            ),
-//                            Eleitor(
-//                                nome = "Mano Manoel",
-//                                endereco = "Rua curvada do Cepal",
-//                                setor = "Universitário",
-//                                telefone = "62982586328",
-//                                dataNascimento = "20/10/1994",
-//                                colegioDeVotacao = "Pre-universitario",
-//                                observacao = "Monstrao, habilidoso e patim no wow"
-//                            )
-//                        )
+                        val eleitorDao: EleitorDAO by inject()
+                        val setorDao: SetorDAO by inject()
+                        eleitorDao.salvaTodos(
+                            listOf(
+                                Eleitor(
+                                    codigo = 1,
+                                    nome = "Paulo Victor Alexandre Alves",
+                                    endereco = "Rua 1121, número 99",
+                                    setor = "Marista",
+                                    telefone = "62992694928",
+                                    caboEleitoral = "0",
+                                    dataNascimento = "25/06/1996",
+                                    colegioDeVotacao = "CEJAT",
+                                    observacao = "Residência em frente a garagem da Nissan"
+                                ),
+                                Eleitor(
+                                    codigo = 2,
+                                    nome = "Jonelito Lenda",
+                                    endereco = "Lá no morro do universitário",
+                                    setor = "Universitário",
+                                    telefone = "62982954185",
+                                    dataNascimento = "15/06/1996",
+                                    colegioDeVotacao = "Playboy",
+                                    caboEleitoral = "0",
+                                    observacao = "Careca de tanta habilidade"
+                                ),
+                                Eleitor(
+                                    codigo = 3,
+                                    nome = "Mano Manoel",
+                                    endereco = "Rua curvada do Cepal",
+                                    setor = "Universitário",
+                                    telefone = "62982586328",
+                                    dataNascimento = "20/10/1994",
+                                    colegioDeVotacao = "Pre-universitario",
+                                    caboEleitoral = "0",
+                                    observacao = "Monstrao, habilidoso e patim no wow"
+                                )
+                            )
+                        )
+                        setorDao.salvaTodos(listOf(
+                            Setor(1, "Universitário"),
+                            Setor(2, "Oeste"),
+                            Setor(3, "Marista")
+                        ))
                     }
                 }
             }).build()
@@ -82,21 +101,24 @@ val testeDatabaseModule = module {
 }
 
 val databaseModule = module {
-    single<AppDatabase> {
-        Room.databaseBuilder(
-            get(),
-            AppDatabase::class.java,
-            NOME_BANCO_DE_DADOS
-        ).build()
-    }
+//    single<AppDatabase> {
+//        Room.databaseBuilder(
+//            get(),
+//            AppDatabase::class.java,
+//            NOME_BANCO_DE_DADOS
+//        ).build()
+//    }
+    single { AppDatabase.getInstance(get()) }
 }
 
 val daoModule = module {
-    single { get<AppDatabase>().produtoDao() }
+    single { get<AppDatabase>().eleitorDao() }
     single { get<AppDatabase>().pagamentoDao() }
+    single { get<AppDatabase>().setorDao() }
     single { EleitorRepository(get(), get()) }
     single { PagamentoRepository(get()) }
     single { LoginRepository(get(), get()) }
+    single { SetorRepository(get()) }
     single<SharedPreferences> { PreferenceManager.getDefaultSharedPreferences(get()) }
 }
 
@@ -114,10 +136,11 @@ val viewModelModule = module {
     viewModel { LoginViewModel(get()) }
     viewModel { EstadoAppViewModel() }
     viewModel { CadastroEleitorViewModel(get()) }
+    viewModel { FiltroDialogViewModel(get()) }
 }
 
 val serviceModule = module {
-    single { createWebService<CaboEleitoralService>("http://35.224.215.210/") }
+    single { createWebService<CaboEleitoralService>("http://35.222.21.204/") }
 }
 
 inline fun <reified T> createWebService(url: String): T {
@@ -132,9 +155,9 @@ inline fun <reified T> createWebService(url: String): T {
             val request = applyRequest(UsuarioInstance.getToken(), chain)
             chain.proceed(request)
         }
-        .connectTimeout(5, TimeUnit.MINUTES)
-        .readTimeout(5, TimeUnit.MINUTES)
-        .writeTimeout(5, TimeUnit.MINUTES)
+        .connectTimeout(1, TimeUnit.SECONDS)
+        .readTimeout(40, TimeUnit.SECONDS)
+        .writeTimeout(40, TimeUnit.SECONDS)
         .build()
 
     val retrofit = Retrofit.Builder()
