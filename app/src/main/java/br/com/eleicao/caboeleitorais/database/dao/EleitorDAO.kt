@@ -10,7 +10,7 @@ import br.com.eleicao.caboeleitorais.model.Eleitor
 @Dao
 interface EleitorDAO {
 
-    @Query("SELECT * FROM Eleitor")
+    @Query("SELECT * FROM Eleitor ORDER BY nome")
     fun buscaTodos(): List<Eleitor>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

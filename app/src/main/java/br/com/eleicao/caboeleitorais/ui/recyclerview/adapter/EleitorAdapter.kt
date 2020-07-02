@@ -41,8 +41,10 @@ class EleitorAdapter(
         RecyclerView.ViewHolder(itemView) {
 
         private lateinit var eleitor: Eleitor
+        private val campoInicial by lazy { itemView.item_eleitores_inicial }
         private val campoNome by lazy { itemView.item_eleitores_nome }
         private val campoEndereco by lazy { itemView.item_eleitores_endereco }
+        private val campoSetor by lazy { itemView.item_eleitores_setor }
 
         init {
             itemView.setOnClickListener {
@@ -55,7 +57,9 @@ class EleitorAdapter(
         fun vincula(eleitor: Eleitor) {
             this.eleitor = eleitor
             val nome = "${eleitor.codigo} - ${eleitor.nome}"
+            campoInicial.text = eleitor.nome.first().toString()
             campoNome.text = nome
+            campoSetor.text = eleitor.setor
             campoEndereco.text = eleitor.endereco
         }
 

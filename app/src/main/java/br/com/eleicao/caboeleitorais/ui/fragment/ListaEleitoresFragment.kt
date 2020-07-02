@@ -67,21 +67,25 @@ class ListaEleitoresFragment : BaseFragment() {
         if (item.itemId == R.id.menu_principal_filtro) {
             supportFragmentManager {
                 FiltroDialog.getInstance(filtro) {
-                    if (it.setor.isEmpty()) {
-                        filtro = Filtro()
-                        val eleitores = viewModel.getEleitores()
-                        adapter.atualiza(eleitores)
-                        item.setIcon(R.drawable.ic_filter_list_white_24dp)
-                    } else {
-                        filtro = it
-                        val eleitoresFiltrados = viewModel.filter(filtro)
-                        adapter.atualiza(eleitoresFiltrados)
-                        item.setIcon(R.drawable.ic_filter_checked)
-                    }
+                    filtraEleitores(it, item)
                 }.show(this, "")
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun filtraEleitores(filtro: Filtro, item: MenuItem) {
+        if (filtro.setor.isEmpty()) {
+            this.filtro = Filtro()
+            val eleitores = viewModel.getEleitores()
+            adapter.atualiza(eleitores)
+            item.setIcon(R.drawable.ic_filter_list_white_24dp)
+        } else {
+            this.filtro = filtro
+            val eleitoresFiltrados = viewModel.filter(this.filtro)
+            adapter.atualiza(eleitoresFiltrados)
+            item.setIcon(R.drawable.ic_filter_checked)
+        }
     }
 
     private fun configuraSearchView(searchView: SearchView) {

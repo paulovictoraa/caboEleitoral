@@ -1,10 +1,8 @@
 package br.com.eleicao.caboeleitorais.repository
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.eleicao.caboeleitorais.database.dao.EleitorDAO
-import br.com.eleicao.caboeleitorais.exception.BusinessException
 import br.com.eleicao.caboeleitorais.model.Eleitor
 import br.com.eleicao.caboeleitorais.model.UsuarioInstance
 import br.com.eleicao.caboeleitorais.service.CaboEleitoralService
@@ -12,7 +10,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.lang.IllegalArgumentException
 
 class EleitorRepository(
     private val dao: EleitorDAO,
@@ -40,7 +37,8 @@ class EleitorRepository(
                     val id = dao.salva(eleitorNuvem)
                     liveData.postValue(Resource(id))
                 } catch (e: Exception) {
-                    Log.e("", "")
+                    val id = dao.salva(eleitor)
+                    liveData.postValue(Resource(id))
                 }
             }
         }

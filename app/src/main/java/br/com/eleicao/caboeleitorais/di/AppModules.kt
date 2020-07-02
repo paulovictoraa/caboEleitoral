@@ -135,7 +135,7 @@ val viewModelModule = module {
     viewModel { PagamentoViewModel(get(), get()) }
     viewModel { LoginViewModel(get()) }
     viewModel { EstadoAppViewModel() }
-    viewModel { CadastroEleitorViewModel(get()) }
+    viewModel { CadastroEleitorViewModel(get(), get()) }
     viewModel { FiltroDialogViewModel(get()) }
 }
 
