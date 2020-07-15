@@ -1,5 +1,6 @@
 package br.com.eleicao.caboeleitorais.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.eleicao.caboeleitorais.database.dao.EleitorDAO
@@ -20,11 +21,18 @@ class EleitorRepository(
 
     suspend fun buscaTodos(): List<Eleitor> {
         try {
-            val eleitores = service.listar()
+            val eleitores = if (UsuarioInstance.isAdmin()) {
+                service.listar()
+            } else {
+                service.listarPorId(UsuarioInstance.getCodigo())
+            }
             dao.salvaTodos(eleitores)
+        } catch (e: Exception) {
+            Log.e("", e.message ?: "")
         } finally {
             return dao.buscaTodos()
         }
+
     }
 
     fun buscaPorId(id: Long): LiveData<Eleitor> = dao.buscaPorId(id)

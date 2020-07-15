@@ -16,6 +16,9 @@ interface CaboEleitoralService {
     @GET("eleitores")
     suspend fun listar(): MutableList<Eleitor>
 
+    @GET("eleitores/{id}")
+    suspend fun listarPorId(@Path("id") id: String): MutableList<Eleitor>
+
     @POST("cadastro/{id}")
     suspend fun salvar(@Path("id") id: String, @Body eleitor: Eleitor): Eleitor
 

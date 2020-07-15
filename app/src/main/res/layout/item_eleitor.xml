@@ -67,7 +67,7 @@
         android:layout_marginTop="4dp"
         android:text="Setor:"
         app:layout_constraintStart_toStartOf="@+id/item_eleitores_nome"
-        app:layout_constraintTop_toBottomOf="@+id/item_eleitores_nome" />
+        app:layout_constraintTop_toBottomOf="@+id/item_eleitores_cabo_eleitoral_label" />
 
     <TextView
         android:id="@+id/item_eleitores_setor"
@@ -81,5 +81,27 @@
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="@+id/textView9"
         tools:text="Oeste" />
+
+    <TextView
+        android:id="@+id/item_eleitores_cabo_eleitoral_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Cabo Eleitoral:"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/item_eleitores_nome"
+        app:layout_constraintTop_toBottomOf="@+id/item_eleitores_nome"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/item_eleitores_cabo_eleitoral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/item_eleitores_cabo_eleitoral_label"
+        app:layout_constraintTop_toTopOf="@+id/item_eleitores_cabo_eleitoral_label"
+        tools:text="1"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

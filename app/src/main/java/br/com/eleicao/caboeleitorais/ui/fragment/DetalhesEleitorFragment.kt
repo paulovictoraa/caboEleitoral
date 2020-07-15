@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import br.com.eleicao.caboeleitorais.R
+import br.com.eleicao.caboeleitorais.model.UsuarioInstance
 import br.com.eleicao.caboeleitorais.ui.viewmodel.ComponentesVisuais
 import br.com.eleicao.caboeleitorais.ui.viewmodel.DetalhesEleitorViewModel
 import br.com.eleicao.caboeleitorais.ui.viewmodel.EstadoAppViewModel
@@ -44,20 +45,6 @@ class DetalhesEleitorFragment : BaseFragment() {
         buscaProduto()
     }
 
-//    private fun configuraBotaoComprar() {
-//        detalhes_eleitor_editar.setOnClickListener {
-//            viewModel.produtoEncontrado.value?.let {
-//                vaiParaPagamento()
-//            }
-//        }
-//    }
-
-//    private fun vaiParaPagamento() {
-//        val direcao = DetalhesEleitorFragmentDirections
-//            .acaoDetalhesEleitorParaPagamento(produtoId)
-//        controlador.navigate(direcao)
-//    }
-
     private fun buscaProduto() {
         viewModel.produtoEncontrado.observe(viewLifecycleOwner, Observer {
             it?.let { eleitor ->
@@ -66,6 +53,11 @@ class DetalhesEleitorFragment : BaseFragment() {
                 detalhes_eleitor_setor.text = eleitor.setor
                 detalhes_eleitor_telefone.text = eleitor.telefone
                 detalhes_eleitor_data_nascimento.text = eleitor.dataNascimento
+                if (UsuarioInstance.isAdmin()) {
+                    detalhes_eleitor_cabo_eleitoral.visibility = View.VISIBLE
+                    detalhes_eleitor_cabo_eleitoral_label.visibility = View.VISIBLE
+                    detalhes_eleitor_cabo_eleitoral.text = eleitor.caboEleitoral
+                }
                 detalhes_eleitor_colegio.text = eleitor.colegioDeVotacao ?: ""
                 detalhes_eleitor_observacao.text = eleitor.observacao ?: ""
             }

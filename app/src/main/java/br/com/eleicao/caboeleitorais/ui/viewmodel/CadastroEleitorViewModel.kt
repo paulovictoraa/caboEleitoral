@@ -17,4 +17,6 @@ class CadastroEleitorViewModel(
 
     fun buscarSetores() = setorRepository.buscarTodos()
 
+    fun buscarPorNome(setor: String) = setorRepository.buscarPorNome(setor)
+
 }

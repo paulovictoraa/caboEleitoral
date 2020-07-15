@@ -8,14 +8,22 @@ object UsuarioInstance {
     fun getToken() = usuario?.token
 
     fun getCodigo(): String {
-        val acessToken = getToken()?.acessToken ?: ""
-        val identity = JWTUtil.decodeJwt(acessToken, "identity") ?: ""
+        val identity = getIdentify()
         return if (identity.isEmpty()) {
             identity
         } else {
             identity.split(":")[1]
         }
     }
+
+    fun getIdentify(): String {
+        val acessToken = getToken()?.acessToken ?: ""
+        val identity = JWTUtil.decodeJwt(acessToken, "identity") ?: ""
+        return identity
+    }
+
+    fun isAdmin(): Boolean = getIdentify().contains("adm")
+
 }
 
 data class Usuario(

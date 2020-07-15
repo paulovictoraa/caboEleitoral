@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.eleicao.caboeleitorais.R
 import br.com.eleicao.caboeleitorais.model.Eleitor
+import br.com.eleicao.caboeleitorais.model.UsuarioInstance
 import kotlinx.android.synthetic.main.item_eleitor.view.*
 
 class EleitorAdapter(
@@ -45,6 +46,8 @@ class EleitorAdapter(
         private val campoNome by lazy { itemView.item_eleitores_nome }
         private val campoEndereco by lazy { itemView.item_eleitores_endereco }
         private val campoSetor by lazy { itemView.item_eleitores_setor }
+        private val caboEleitoral by lazy { itemView.item_eleitores_cabo_eleitoral }
+        private val caboEleitoralLabel by lazy { itemView.item_eleitores_cabo_eleitoral_label }
 
         init {
             itemView.setOnClickListener {
@@ -57,10 +60,15 @@ class EleitorAdapter(
         fun vincula(eleitor: Eleitor) {
             this.eleitor = eleitor
             val nome = "${eleitor.codigo} - ${eleitor.nome}"
-            campoInicial.text = eleitor.nome.first().toString()
+            campoInicial.text = eleitor.nome.first().toUpperCase().toString()
             campoNome.text = nome
             campoSetor.text = eleitor.setor
             campoEndereco.text = eleitor.endereco
+            if (UsuarioInstance.isAdmin()) {
+                caboEleitoral.visibility = View.VISIBLE
+                caboEleitoralLabel.visibility = View.VISIBLE
+                caboEleitoral.text = eleitor.caboEleitoral
+            }
         }
 
     }

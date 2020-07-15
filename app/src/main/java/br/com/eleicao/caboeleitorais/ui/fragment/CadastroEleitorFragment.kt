@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import br.com.eleicao.caboeleitorais.R
 import br.com.eleicao.caboeleitorais.extension.showSnackBar
 import br.com.eleicao.caboeleitorais.model.Eleitor
+import br.com.eleicao.caboeleitorais.model.UsuarioInstance
 import br.com.eleicao.caboeleitorais.ui.viewmodel.CadastroEleitorViewModel
 import br.com.eleicao.caboeleitorais.ui.viewmodel.ComponentesVisuais
 import br.com.eleicao.caboeleitorais.ui.viewmodel.EstadoAppViewModel
@@ -51,8 +52,8 @@ class CadastroEleitorFragment : BaseFragment() {
         configurarMascara(Mask.MaskType.DATA_NASC, editar_data_nascimento.editText)
     }
 
-    private fun configurarMascara(type: Mask.MaskType , editText: EditText?) {
-        editText?.let{
+    private fun configurarMascara(type: Mask.MaskType, editText: EditText?) {
+        editText?.let {
             val mask = Mask.insert(type, it)
             it.addTextChangedListener(mask)
         }
@@ -104,7 +105,7 @@ class CadastroEleitorFragment : BaseFragment() {
     }
 
     private fun validarCampos(): Boolean {
-        return ValidadorEditTextBuilder()
+        val isCamposValidos = ValidadorEditTextBuilder()
             .isObrigatorio(editar_eleitor_nome.editText)
             .isObrigatorio(editar_endereco.editText)
             .isObrigatorio(editar_setor.editText)
@@ -112,6 +113,19 @@ class CadastroEleitorFragment : BaseFragment() {
             .isObrigatorio(editar_data_nascimento.editText)
             .isObrigatorio(editar_colegio_votacao.editText)
             .build()
+
+        if (isSetorInvalido()) {
+            showSnackBar("Setor selecionado inválido")
+            return false
+        }
+
+        return isCamposValidos
+    }
+
+    private fun isSetorInvalido(): Boolean {
+        val setor = editar_setor.editText?.text.toString()
+        if (setor.isNullOrEmpty()) return false
+        return viewModel.buscarPorNome(setor) == null
     }
 
     private fun salvarEleitor(
@@ -128,6 +142,7 @@ class CadastroEleitorFragment : BaseFragment() {
             endereco = enderecoEleitor,
             setor = setorEleitor,
             telefone = telefoneEleitor,
+            caboEleitoral = UsuarioInstance.getCodigo(),
             dataNascimento = dataNascimentoEleitor,
             colegioDeVotacao = colegioVotacaoEleitor,
             observacao = observacaoEleitor
