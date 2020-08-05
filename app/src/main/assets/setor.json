@@ -1,0 +1,1553 @@
+[
+  {
+    "nome": "14 Bis"
+  },
+  {
+    "nome":"Aeroporto"
+  },
+  {
+    "nome":"Aeroviário"
+  },
+  {
+    "nome":"Água Branca"
+  },
+  {
+    "nome":"Aldeia do Vale"
+  },
+  {
+    "nome":"Alice Barbosa"
+  },
+  {
+    "nome":"AlphaVille Flamboyant"
+  },
+  {
+    "nome":"Alphaville Residencial"
+  },
+  {
+    "nome":"Alto Boa Vista"
+  },
+  {
+    "nome":"Alto da Glória"
+  },
+  {
+    "nome":"Alto do Vale"
+  },
+  {
+    "nome":"Alto Oriente"
+  },
+  {
+    "nome":"Amin Camargo"
+  },
+  {
+    "nome":"Ana Clara"
+  },
+  {
+    "nome":"Ana Moraes"
+  },
+  {
+    "nome":"Andréia"
+  },
+  {
+    "nome":"Anglo"
+  },
+  {
+    "nome":"Anhanguera"
+  },
+  {
+    "nome":"Anicuns"
+  },
+  {
+    "nome":"Antônio Barbosa"
+  },
+  {
+    "nome":"Antônio Carlos Pires"
+  },
+  {
+    "nome":"Aquários"
+  },
+  {
+    "nome":"Araguaia Park"
+  },
+  {
+    "nome":"Arco Verde"
+  },
+  {
+    "nome":"Areião"
+  },
+  {
+    "nome":"Aruanã"
+  },
+  {
+    "nome":"Aruanã Park"
+  },
+  {
+    "nome":"Asa Branca"
+  },
+  {
+    "nome":"Atalaia"
+  },
+  {
+    "nome":"Atibaia"
+  },
+  {
+    "nome":"Bairro da Vitória"
+  },
+  {
+    "nome":"Bairro das Nações"
+  },
+  {
+    "nome":"Bairro Feliz"
+  },
+  {
+    "nome":"Baliza"
+  },
+  {
+    "nome":"Barra da Tijuca"
+  },
+  {
+    "nome":"Barravento"
+  },
+  {
+    "nome":"Beatriz Nascimento"
+  },
+  {
+    "nome":"Bela Vista"
+  },
+  {
+    "nome":"Belo Horizonte"
+  },
+  {
+    "nome":"Bertim Belchior"
+  },
+  {
+    "nome":"Boa Vista"
+  },
+  {
+    "nome":"Bonanza"
+  },
+  {
+    "nome":"Bosque dos Buritis"
+  },
+  {
+    "nome":"Bosque Sumaré"
+  },
+  {
+    "nome":"Brasil Central"
+  },
+  {
+    "nome":"Brisas da Mata"
+  },
+  {
+    "nome":"Brisas do Cerrado"
+  },
+  {
+    "nome":"Buena Vista"
+  },
+  {
+    "nome":"Bueno"
+  },
+  {
+    "nome":"Cachoeira Dourada"
+  },
+  {
+    "nome":"Campinas"
+  },
+  {
+    "nome":"Campos Dourados"
+  },
+  {
+    "nome":"Cândida de Morais"
+  },
+  {
+    "nome":"Capuava"
+  },
+  {
+    "nome":"Capuava Residencial Privê"
+  },
+  {
+    "nome":"Caraíbas"
+  },
+  {
+    "nome":"Carla Cristina"
+  },
+  {
+    "nome":"Carlos de Freitas"
+  },
+  {
+    "nome":"Carolina Parque"
+  },
+  {
+    "nome":"Castelo Branco"
+  },
+  {
+    "nome":"Celina Park"
+  },
+  {
+    "nome":"Celina Parque"
+  },
+  {
+    "nome":"Center Ville"
+  },
+  {
+    "nome":"Centro"
+  },
+  {
+    "nome":"Centro Oeste"
+  },
+  {
+    "nome":"Chácara Anhanguera"
+  },
+  {
+    "nome":"Chácara Botafogo"
+  },
+  {
+    "nome":"Chácara Buritis"
+  },
+  {
+    "nome":"Chácara do Governador"
+  },
+  {
+    "nome":"Chácara Maringá"
+  },
+  {
+    "nome":"Chácara Santa Rita"
+  },
+  {
+    "nome":"Chácara São José"
+  },
+  {
+    "nome":"Chácaras Maria Dilce"
+  },
+  {
+    "nome":"Cidade Jardim"
+  },
+  {
+    "nome":"Cidade Verde"
+  },
+  {
+    "nome":"Cléa Borges"
+  },
+  {
+    "nome":"Coimbra"
+  },
+  {
+    "nome":"Colônia Santa Marta"
+  },
+  {
+    "nome":"Condomínio das Esmeraldas"
+  },
+  {
+    "nome":"Condomínio do Lago"
+  },
+  {
+    "nome":"Conjunto Anhanguera"
+  },
+  {
+    "nome":"Conjunto Anhanguera"
+  },
+  {
+    "nome":"Conjunto Caiçara"
+  },
+  {
+    "nome":"Conjunto das Esmeraldas"
+  },
+  {
+    "nome":"Conjunto Fabiana"
+  },
+  {
+    "nome":"Conjunto Palmares"
+  },
+  {
+    "nome":"Conjunto Riviera"
+  },
+  {
+    "nome":"Conjunto Vera Cruz"
+  },
+  {
+    "nome":"Coronel Álvaro Alves Júnior"
+  },
+  {
+    "nome":"Costa Paranhos"
+  },
+  {
+    "nome":"Costa Verde"
+  },
+  {
+    "nome":"Crimeia Leste"
+  },
+  {
+    "nome":"Crimeia Oeste"
+  },
+  {
+    "nome":"Cristina"
+  },
+  {
+    "nome":"Della Pena"
+  },
+  {
+    "nome":"Dezopi"
+  },
+  {
+    "nome":"Dom Rafael"
+  },
+  {
+    "nome":"Dona Gê"
+  },
+  {
+    "nome":"Eldorado"
+  },
+  {
+    "nome":"Eli Forte"
+  },
+  {
+    "nome":"Elísios Campos"
+  },
+  {
+    "nome":"Empresarial"
+  },
+  {
+    "nome":"Esplanada do Anicuns"
+  },
+  {
+    "nome":"Estrela D'Alva"
+  },
+  {
+    "nome":"Faiçalville"
+  },
+  {
+    "nome":"Felicidade"
+  },
+  {
+    "nome":"Finsocial"
+  },
+  {
+    "nome":"Floresta"
+  },
+  {
+    "nome":"Fonte das Águas"
+  },
+  {
+    "nome":"Forteville"
+  },
+  {
+    "nome":"Funcionários"
+  },
+  {
+    "nome":"Garavelo"
+  },
+  {
+    "nome":"Gentil Meireles"
+  },
+  {
+    "nome":"Goiá"
+  },
+  {
+    "nome":"Goiânia 2"
+  },
+  {
+    "nome":"Goiânia Golfe Clube"
+  },
+  {
+    "nome":"Goiânia Viva"
+  },
+  {
+    "nome":"Goyaz Park"
+  },
+  {
+    "nome":"Grajaú"
+  },
+  {
+    "nome":"Grande Retiro"
+  },
+  {
+    "nome":"Granja Cruzeiro do Sul"
+  },
+  {
+    "nome":"Granville"
+  },
+  {
+    "nome":"Green Park"
+  },
+  {
+    "nome":"Guadalajara"
+  },
+  {
+    "nome":"Guarema"
+  },
+  {
+    "nome":"Housing Flamboyant"
+  },
+  {
+    "nome":"Hugo de Moraes"
+  },
+  {
+    "nome":"Humaitá"
+  },
+  {
+    "nome":"Industrial Mooca"
+  },
+  {
+    "nome":"Ipiranga"
+  },
+  {
+    "nome":"Irisville"
+  },
+  {
+    "nome":"Itamaracá"
+  },
+  {
+    "nome":"Itanhangá"
+  },
+  {
+    "nome":"Itatiaia"
+  },
+  {
+    "nome":"Jaó"
+  },
+  {
+    "nome":"Jardim Abaporu"
+  },
+  {
+    "nome":"Jardim Alvaphille"
+  },
+  {
+    "nome":"Jardim América"
+  },
+  {
+    "nome":"Jardim Ana Flávia"
+  },
+  {
+    "nome":"Jardim Ana Lúcia"
+  },
+  {
+    "nome":"Jardim Aritana"
+  },
+  {
+    "nome":"Jardim Atenas"
+  },
+  {
+    "nome":"Jardim Atlântico"
+  },
+  {
+    "nome":"Jardim Balneário Meia Ponte"
+  },
+  {
+    "nome":"Jardim Bela Vista"
+  },
+  {
+    "nome":"Jardim Belvedere"
+  },
+  {
+    "nome":"Jardim Bom Jesus"
+  },
+  {
+    "nome":"Jardim Bonanza"
+  },
+  {
+    "nome":"Jardim Botânico"
+  },
+  {
+    "nome":"Jardim Brasil"
+  },
+  {
+    "nome":"Jardim Califórnia"
+  },
+  {
+    "nome":"Jardim Califórnia Industrial"
+  },
+  {
+    "nome":"Jardim Camargo"
+  },
+  {
+    "nome":"Jardim Caravelas"
+  },
+  {
+    "nome":"Jardim Clarissa"
+  },
+  {
+    "nome":"Jardim Colorado"
+  },
+  {
+    "nome":"Jardim Conquista"
+  },
+  {
+    "nome":"Jardim Corte Real"
+  },
+  {
+    "nome":"Jardim Curitiba"
+  },
+  {
+    "nome":"Jardim da Luz"
+  },
+  {
+    "nome":"Jardim das Aroeiras"
+  },
+  {
+    "nome":"Jardim das Esmeraldas"
+  },
+  {
+    "nome":"Jardim das Hortências"
+  },
+  {
+    "nome":"Jardim das Oliveiras"
+  },
+  {
+    "nome":"Jardim das Rosas"
+  },
+  {
+    "nome":"Jardim das Rosas"
+  },
+  {
+    "nome":"Jardim Diamantina"
+  },
+  {
+    "nome":"Jardim Dom Fernando"
+  },
+  {
+    "nome":"Jardim Eli Forte"
+  },
+  {
+    "nome":"Jardim Europa"
+  },
+  {
+    "nome":"Jardim Florença"
+  },
+  {
+    "nome":"Jardim Fonte Nova"
+  },
+  {
+    "nome":"Jardim Gardênia"
+  },
+  {
+    "nome":"Jardim Goiás"
+  },
+  {
+    "nome":"Jardim Gramado"
+  },
+  {
+    "nome":"Jardim Guanabara"
+  },
+  {
+    "nome":"Jardim Helou"
+  },
+  {
+    "nome":"Jardim Imperial"
+  },
+  {
+    "nome":"Jardim Ipanema"
+  },
+  {
+    "nome":"Jardim Ipê"
+  },
+  {
+    "nome":"Jardim Itaipu"
+  },
+  {
+    "nome":"Jardim Lago Azul"
+  },
+  {
+    "nome":"Jardim Lajeado"
+  },
+  {
+    "nome":"Jardim Leblon"
+  },
+  {
+    "nome":"Jardim Liberdade"
+  },
+  {
+    "nome":"Jardim Madri"
+  },
+  {
+    "nome":"Jardim Maria Helena"
+  },
+  {
+    "nome":"Jardim Mariliza"
+  },
+  {
+    "nome":"Jardim Marques de Abreu"
+  },
+  {
+    "nome":"Jardim Mirabel"
+  },
+  {
+    "nome":"Jardim Nova Esperança"
+  },
+  {
+    "nome":"Jardim Novo Mundo"
+  },
+  {
+    "nome":"Jardim Novo Petrópolis"
+  },
+  {
+    "nome":"Jardim Paris"
+  },
+  {
+    "nome":"Jardim Planalto"
+  },
+  {
+    "nome":"Jardim Pompeia"
+  },
+  {
+    "nome":"Jardim Presidente"
+  },
+  {
+    "nome":"Jardim Real"
+  },
+  {
+    "nome":"Jardim Santa Cecília"
+  },
+  {
+    "nome":"Jardim Santa Cecília"
+  },
+  {
+    "nome":"Jardim Santo Antônio"
+  },
+  {
+    "nome":"Jardim São José"
+  },
+  {
+    "nome":"Jardim Sônia Maria"
+  },
+  {
+    "nome":"Jardim Tancredo Neves"
+  },
+  {
+    "nome":"Jardim Valência"
+  },
+  {
+    "nome":"Jardim Verona"
+  },
+  {
+    "nome":"Jardim Vila Boa"
+  },
+  {
+    "nome":"Jardim Vista Bela"
+  },
+  {
+    "nome":"Jardim Vitória"
+  },
+  {
+    "nome":"Jardim Vitória"
+  },
+  {
+    "nome":"Jardim Xavier"
+  },
+  {
+    "nome":"Jardins do Cerrado"
+  },
+  {
+    "nome":"Jardins Lisboa"
+  },
+  {
+    "nome":"Jardins Milão"
+  },
+  {
+    "nome":"Jardins Munique"
+  },
+  {
+    "nome":"João Bueno"
+  },
+  {
+    "nome":"João Paulo II"
+  },
+  {
+    "nome":"João Vaz"
+  },
+  {
+    "nome":"José Viandeli"
+  },
+  {
+    "nome":"Junqueira"
+  },
+  {
+    "nome":"Juscelino Kubitschek"
+  },
+  {
+    "nome":"Licardino Ney"
+  },
+  {
+    "nome":"Linda Vista"
+  },
+  {
+    "nome":"Lírios do Campo"
+  },
+  {
+    "nome":"London Park"
+  },
+  {
+    "nome":"Lorena Parque"
+  },
+  {
+    "nome":"Luana Park"
+  },
+  {
+    "nome":"Lucy Pinheiro"
+  },
+  {
+    "nome":"Madre Germana 2"
+  },
+  {
+    "nome":"Malibu"
+  },
+  {
+    "nome":"Mansões Bernardo Sayão"
+  },
+  {
+    "nome":"Mansões do Campus"
+  },
+  {
+    "nome":"Mansões Goianas"
+  },
+  {
+    "nome":"Mansões Paraíso"
+  },
+  {
+    "nome":"Mansões Rosas de Ouro"
+  },
+  {
+    "nome":"Mar del Plata"
+  },
+  {
+    "nome":"Marabá"
+  },
+  {
+    "nome":"Marechal Rondon"
+  },
+  {
+    "nome":"Maria Celeste"
+  },
+  {
+    "nome":"Maria Dilce"
+  },
+  {
+    "nome":"Maria Lourença"
+  },
+  {
+    "nome":"Maria Rosa"
+  },
+  {
+    "nome":"Marista"
+  },
+  {
+    "nome":"Marlene"
+  },
+  {
+    "nome":"Maysa"
+  },
+  {
+    "nome":"Moinho dos Ventos"
+  },
+  {
+    "nome":"Monte Carlo"
+  },
+  {
+    "nome":"Monte Pascoal"
+  },
+  {
+    "nome":"Monte Verde"
+  },
+  {
+    "nome":"Morada do Bosque"
+  },
+  {
+    "nome":"Morada do Ipê"
+  },
+  {
+    "nome":"Morada do Sol"
+  },
+  {
+    "nome":"Morada dos Sonhos"
+  },
+  {
+    "nome":"Morada Nova"
+  },
+  {
+    "nome":"Morais"
+  },
+  {
+    "nome":"Morumbi"
+  },
+  {
+    "nome":"Mundo Novo"
+  },
+  {
+    "nome":"Negrão de Lima"
+  },
+  {
+    "nome":"Noroeste"
+  },
+  {
+    "nome":"Norte Ferroviário"
+  },
+  {
+    "nome":"Nossa Morada"
+  },
+  {
+    "nome":"Nossa Senhora de Fátima"
+  },
+  {
+    "nome":"Nova Aurora"
+  },
+  {
+    "nome":"Nova Suíça"
+  },
+  {
+    "nome":"Nova Vila"
+  },
+  {
+    "nome":"Novo Horizonte"
+  },
+  {
+    "nome":"Novo Planalto"
+  },
+  {
+    "nome":"Nunes de Morais"
+  },
+  {
+    "nome":"Oeste"
+  },
+  {
+    "nome":"Operário"
+  },
+  {
+    "nome":"Orientville"
+  },
+  {
+    "nome":"Orlando de Morais"
+  },
+  {
+    "nome":"Padre Pelágio"
+  },
+  {
+    "nome":"Panorama Parque"
+  },
+  {
+    "nome":"Park Lozandes"
+  },
+  {
+    "nome":"Park Solar"
+  },
+  {
+    "nome":"Parque Acalanto"
+  },
+  {
+    "nome":"Parque Aeronáutico Antônio Sebba Filho"
+  },
+  {
+    "nome":"Parque Amazônia"
+  },
+  {
+    "nome":"Parque Anhanguera"
+  },
+  {
+    "nome":"Parque Atheneu"
+  },
+  {
+    "nome":"Parque Atheneu"
+  },
+  {
+    "nome":"Parque Balneário"
+  },
+  {
+    "nome":"Parque Bom Jesus"
+  },
+  {
+    "nome":"Parque Buriti"
+  },
+  {
+    "nome":"Parque das Amendoeiras"
+  },
+  {
+    "nome":"Parque das Flores"
+  },
+  {
+    "nome":"Parque das Laranjeiras"
+  },
+  {
+    "nome":"Parque das Nações"
+  },
+  {
+    "nome":"Parque dos Cisnes"
+  },
+  {
+    "nome":"Parque Eldorado Oeste"
+  },
+  {
+    "nome":"Parque Flamboyant"
+  },
+  {
+    "nome":"Parque Industrial de Goiânia"
+  },
+  {
+    "nome":"Parque Industrial João Braz"
+  },
+  {
+    "nome":"Parque Industrial Paulista"
+  },
+  {
+    "nome":"Parque Maracanã"
+  },
+  {
+    "nome":"Parque Mendanha"
+  },
+  {
+    "nome":"Parque Oeste"
+  },
+  {
+    "nome":"Parque Oeste Industrial"
+  },
+  {
+    "nome":"Parque Paraíso"
+  },
+  {
+    "nome":"Parque Santa Cruz"
+  },
+  {
+    "nome":"Parque Santa Maria"
+  },
+  {
+    "nome":"Parque Santa Rita"
+  },
+  {
+    "nome":"Parque Santa Rita"
+  },
+  {
+    "nome":"Parque Tremendão"
+  },
+  {
+    "nome":"Paulo Estrela"
+  },
+  {
+    "nome":"Paulo Pacheco"
+  },
+  {
+    "nome":"Pedro Ludovico"
+  },
+  {
+    "nome":"Perim"
+  },
+  {
+    "nome":"Petrópolis"
+  },
+  {
+    "nome":"Pilar dos Sonhos"
+  },
+  {
+    "nome":"Pindorama"
+  },
+  {
+    "nome":"Ponta Negra"
+  },
+  {
+    "nome":"Portal Anhanguera"
+  },
+  {
+    "nome":"Portal da Mata"
+  },
+  {
+    "nome":"Portal do Sol"
+  },
+  {
+    "nome":"Portal Petrópolis"
+  },
+  {
+    "nome":"Porto Seguro"
+  },
+  {
+    "nome":"Privê Atlântico"
+  },
+  {
+    "nome":"Privê dos Girassóis"
+  },
+  {
+    "nome":"Privê Ilhas do Caribe"
+  },
+  {
+    "nome":"Privê Norte"
+  },
+  {
+    "nome":"Progresso"
+  },
+  {
+    "nome":"Quinta da Boa Vista"
+  },
+  {
+    "nome":"Real Conquista"
+  },
+  {
+    "nome":"Recanto das Emas"
+  },
+  {
+    "nome":"Recanto das Garças"
+  },
+  {
+    "nome":"Recanto das Minas Gerais"
+  },
+  {
+    "nome":"Recanto do Bosque"
+  },
+  {
+    "nome":"Recanto dos Buritis"
+  },
+  {
+    "nome":"Recreio do Funcionário Público"
+  },
+  {
+    "nome":"Recreio Estrela D'Alva"
+  },
+  {
+    "nome":"Recreio Panorama"
+  },
+  {
+    "nome":"Recreio São Joaquim"
+  },
+  {
+    "nome":"Residencial Balneário"
+  },
+  {
+    "nome":"Residencial Barcelona"
+  },
+  {
+    "nome":"Residencial Canadá"
+  },
+  {
+    "nome":"Residencial das Acácias"
+  },
+  {
+    "nome":"Residencial dos Ipês"
+  },
+  {
+    "nome":"Residencial Eldorado"
+  },
+  {
+    "nome":"Residencial Escócia"
+  },
+  {
+    "nome":"Residencial Espanha"
+  },
+  {
+    "nome":"Residencial Fidélis"
+  },
+  {
+    "nome":"Residencial Flamingo"
+  },
+  {
+    "nome":"Residencial Flórida"
+  },
+  {
+    "nome":"Residencial Fortaleza"
+  },
+  {
+    "nome":"Residencial Guanabara"
+  },
+  {
+    "nome":"Residencial Havaí"
+  },
+  {
+    "nome":"Residencial Itaipu"
+  },
+  {
+    "nome":"Residencial Itália"
+  },
+  {
+    "nome":"Residencial Kátia"
+  },
+  {
+    "nome":"Residencial Manhattan"
+  },
+  {
+    "nome":"Residencial Maringá"
+  },
+  {
+    "nome":"Residencial Mendanha"
+  },
+  {
+    "nome":"Residencial Mirante"
+  },
+  {
+    "nome":"Residencial Noroeste"
+  },
+  {
+    "nome":"Residencial Olinda"
+  },
+  {
+    "nome":"Residencial Ouro Preto"
+  },
+  {
+    "nome":"Residencial Petrópolis"
+  },
+  {
+    "nome":"Residencial Portinari"
+  },
+  {
+    "nome":"Residencial Português"
+  },
+  {
+    "nome":"Residencial Primavera"
+  },
+  {
+    "nome":"Residencial Real"
+  },
+  {
+    "nome":"Residencial Santa Maria"
+  },
+  {
+    "nome":"Residencial Sevilha"
+  },
+  {
+    "nome":"Residencial Talismã"
+  },
+  {
+    "nome":"Residencial Valência"
+  },
+  {
+    "nome":"Rio Branco"
+  },
+  {
+    "nome":"Rio Formoso"
+  },
+  {
+    "nome":"Rio Jordão"
+  },
+  {
+    "nome":"Rio Verde"
+  },
+  {
+    "nome":"Rodoviário"
+  },
+  {
+    "nome":"Romildo F. R. Amaral"
+  },
+  {
+    "nome":"Salinos"
+  },
+  {
+    "nome":"San Marino"
+  },
+  {
+    "nome":"Santa Bárbara"
+  },
+  {
+    "nome":"Santa Fé"
+  },
+  {
+    "nome":"Santa Genoveva"
+  },
+  {
+    "nome":"Santa Rita"
+  },
+  {
+    "nome":"Santa Rita"
+  },
+  {
+    "nome":"Santo Hilário"
+  },
+  {
+    "nome":"Santos Dumont"
+  },
+  {
+    "nome":"Santos Dumont"
+  },
+  {
+    "nome":"São Bernardo"
+  },
+  {
+    "nome":"São Carlos"
+  },
+  {
+    "nome":"São Domingos"
+  },
+  {
+    "nome":"São Francisco"
+  },
+  {
+    "nome":"São Francisco de Assis"
+  },
+  {
+    "nome":"São Geraldo"
+  },
+  {
+    "nome":"São Joaquim"
+  },
+  {
+    "nome":"São Joaquim"
+  },
+  {
+    "nome":"São José"
+  },
+  {
+    "nome":"São Judas Tadeu"
+  },
+  {
+    "nome":"São Leopoldo"
+  },
+  {
+    "nome":"São Marcos"
+  },
+  {
+    "nome":"São Silvestre"
+  },
+  {
+    "nome":"Senador Albino Boaventura"
+  },
+  {
+    "nome":"Senador Paranhos"
+  },
+  {
+    "nome":"Serra Azul"
+  },
+  {
+    "nome":"Serra Park"
+  },
+  {
+    "nome":"Serrinha"
+  },
+  {
+    "nome":"Setor dos Afonsos"
+  },
+  {
+    "nome":"Setor dos Dourados"
+  },
+  {
+    "nome":"Setor união"
+  },
+  {
+    "nome":"Sevene"
+  },
+  {
+    "nome":"Shangri-lá"
+  },
+  {
+    "nome":"Solange Park"
+  },
+  {
+    "nome":"Solange Parque"
+  },
+  {
+    "nome":"Solar Bougainville"
+  },
+  {
+    "nome":"Solar Santa Rita"
+  },
+  {
+    "nome":"Solar Ville"
+  },
+  {
+    "nome":"Sonho Dourado"
+  },
+  {
+    "nome":"Sonho Verde"
+  },
+  {
+    "nome":"Sudoeste"
+  },
+  {
+    "nome":"Sul"
+  },
+  {
+    "nome":"Tempo Novo"
+  },
+  {
+    "nome":"Terra Nova"
+  },
+  {
+    "nome":"Tocafundo"
+  },
+  {
+    "nome":"Três Marias"
+  },
+  {
+    "nome":"Tropical Verde"
+  },
+  {
+    "nome":"Tropical Ville"
+  },
+  {
+    "nome":"Tupinambá dos Reis"
+  },
+  {
+    "nome":"Tuzimoto"
+  },
+  {
+    "nome":"Ulisses Guimarães"
+  },
+  {
+    "nome":"União"
+  },
+  {
+    "nome":"Universitário"
+  },
+  {
+    "nome":"Urias Magalhães"
+  },
+  {
+    "nome":"Vale da Serra"
+  },
+  {
+    "nome":"Vale das Brisas"
+  },
+  {
+    "nome":"Vale do Araguaia"
+  },
+  {
+    "nome":"Vale dos Sonhos"
+  },
+  {
+    "nome":"Vereda dos Buritis"
+  },
+  {
+    "nome":"Vila Abajá"
+  },
+  {
+    "nome":"Vila Adélia"
+  },
+  {
+    "nome":"Vila Adélia"
+  },
+  {
+    "nome":"Vila Aguiar"
+  },
+  {
+    "nome":"Vila Alpes"
+  },
+  {
+    "nome":"Vila Alto da Glória"
+  },
+  {
+    "nome":"Vila Alvorada"
+  },
+  {
+    "nome":"Vila Americano do Brasil"
+  },
+  {
+    "nome":"Vila Anchieta"
+  },
+  {
+    "nome":"Vila Aurora"
+  },
+  {
+    "nome":"Vila Bandeirantes"
+  },
+  {
+    "nome":"Vila Bela"
+  },
+  {
+    "nome":"Vila Bethel"
+  },
+  {
+    "nome":"Vila Boa Sorte"
+  },
+  {
+    "nome":"Vila Canaã"
+  },
+  {
+    "nome":"Vila Clemente"
+  },
+  {
+    "nome":"Vila Colemar Natal e Silva"
+  },
+  {
+    "nome":"Vila Concórdia"
+  },
+  {
+    "nome":"Vila Cristina"
+  },
+  {
+    "nome":"Vila Divino Pai Eterno"
+  },
+  {
+    "nome":"Vila dos Oficiais"
+  },
+  {
+    "nome":"Vila Fernandes"
+  },
+  {
+    "nome":"Vila Froes"
+  },
+  {
+    "nome":"Vila Industrial Pedro Abraão"
+  },
+  {
+    "nome":"Vila Irany"
+  },
+  {
+    "nome":"Vila Isaura"
+  },
+  {
+    "nome":"Vila Jacaré"
+  },
+  {
+    "nome":"Vila Jaraguá"
+  },
+  {
+    "nome":"Vila Legionárias"
+  },
+  {
+    "nome":"Vila Luciana"
+  },
+  {
+    "nome":"Vila Lucy"
+  },
+  {
+    "nome":"Vila Maria Isabel"
+  },
+  {
+    "nome":"Vila Maria José"
+  },
+  {
+    "nome":"Vila Maria Luíza"
+  },
+  {
+    "nome":"Vila Martins"
+  },
+  {
+    "nome":"Vila Matilde"
+  },
+  {
+    "nome":"Vila Mauá"
+  },
+  {
+    "nome":"Vila Megale"
+  },
+  {
+    "nome":"Vila Militar"
+  },
+  {
+    "nome":"Vila Monticelli"
+  },
+  {
+    "nome":"Vila Mooca"
+  },
+  {
+    "nome":"Vila Morais"
+  },
+  {
+    "nome":"Vila Mutirão"
+  },
+  {
+    "nome":"Vila Nossa Senhora Aparecida"
+  },
+  {
+    "nome":"Vila Nova"
+  },
+  {
+    "nome":"Vila Nova Canaã"
+  },
+  {
+    "nome":"Vila Ofugi"
+  },
+  {
+    "nome":"Vila Oswaldo Rosa"
+  },
+  {
+    "nome":"Vila Paraíso"
+  },
+  {
+    "nome":"Vila Pedroso"
+  },
+  {
+    "nome":"Vila Perdiz"
+  },
+  {
+    "nome":"Vila Redenção"
+  },
+  {
+    "nome":"Vila Regina"
+  },
+  {
+    "nome":"Vila Rezende"
+  },
+  {
+    "nome":"Vila Rizzo"
+  },
+  {
+    "nome":"Vila Romana"
+  },
+  {
+    "nome":"Vila Roriz"
+  },
+  {
+    "nome":"Vila Rosa"
+  },
+  {
+    "nome":"Vila Santa Cruz"
+  },
+  {
+    "nome":"Vila Santa Efigênia"
+  },
+  {
+    "nome":"Vila Santa Helena"
+  },
+  {
+    "nome":"Vila Santa Isabel"
+  },
+  {
+    "nome":"Vila Santa Rita"
+  },
+  {
+    "nome":"Vila Santa Rita"
+  },
+  {
+    "nome":"Vila Santa Tereza"
+  },
+  {
+    "nome":"Vila Santana"
+  },
+  {
+    "nome":"Vila Santo Antônio"
+  },
+  {
+    "nome":"Vila São Francisco"
+  },
+  {
+    "nome":"Vila São João"
+  },
+  {
+    "nome":"Vila São José"
+  },
+  {
+    "nome":"Vila São Luiz"
+  },
+  {
+    "nome":"Vila São Paulo"
+  },
+  {
+    "nome":"Vila São Tomaz"
+  },
+  {
+    "nome":"Vila Teófilo Neto"
+  },
+  {
+    "nome":"Vila Vera Cruz"
+  },
+  {
+    "nome":"Vila Viana"
+  },
+  {
+    "nome":"Vila Viandelli"
+  },
+  {
+    "nome":"Vilage Green Park"
+  },
+  {
+    "nome":"Vilage Santa Rita"
+  },
+  {
+    "nome":"Vilage Veneza"
+  },
+  {
+    "nome":"Village Atalaia"
+  },
+  {
+    "nome":"Village Maringá"
+  },
+  {
+    "nome":"Ville de France"
+  },
+  {
+    "nome":"Yara"
+  },
+  {
+    "nome":"Ytapuã"
+  }
+]

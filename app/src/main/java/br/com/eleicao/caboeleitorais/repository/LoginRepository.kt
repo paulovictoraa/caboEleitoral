@@ -9,6 +9,7 @@ import br.com.eleicao.caboeleitorais.service.CaboEleitoralService
 import com.google.gson.Gson
 
 private const val CHAVE_LOGADO = "LOGADO"
+private const val CHAVE_SERVIDOR = "SERVIDOR"
 
 class LoginRepository(
     private val preferences: SharedPreferences,
@@ -58,4 +59,21 @@ class LoginRepository(
         }
     }
 
+    fun salvaConfiguracaoServidor(link: String) {
+        preferences.edit {
+            putString(CHAVE_SERVIDOR, link)
+        }
+    }
+
+    fun getConfiguracaoServidor(): String {
+        val defaultLink = "http://manoelmessias.pythonanywhere.com/"
+        val link = preferences.getString(CHAVE_SERVIDOR, defaultLink)
+        return if (link.isNullOrEmpty()) {
+            defaultLink
+        } else {
+            link
+        }
+    }
+
 }
+
