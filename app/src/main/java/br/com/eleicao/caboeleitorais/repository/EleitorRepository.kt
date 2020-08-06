@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.eleicao.caboeleitorais.database.dao.EleitorDAO
-import br.com.eleicao.caboeleitorais.model.Eleitor
 import br.com.eleicao.caboeleitorais.model.UsuarioInstance
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.service.CaboEleitoralService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,13 +26,28 @@ class EleitorRepository(
             } else {
                 service.listarPorId(UsuarioInstance.getCodigo())
             }
-            dao.salvaTodos(eleitores)
+            salvaTodos(eleitores)
         } catch (e: Exception) {
             Log.e("", e.message ?: "")
         } finally {
             return dao.buscaTodos()
         }
 
+    }
+
+    fun salvaTodos(eleitores: List<Eleitor>) = dao.salvaTodos(eleitores)
+
+    suspend fun fetch(offSet: Int): List<Eleitor> {
+        return try {
+            if (UsuarioInstance.isAdmin()) {
+                service.listar(offSet)
+            } else {
+                service.listarPorId(UsuarioInstance.getCodigo())
+            }
+        } catch (e: Exception) {
+            Log.e("", e.message ?: "")
+            emptyList()
+        }
     }
 
     fun buscaPorId(id: Long): LiveData<Eleitor> = dao.buscaPorId(id)

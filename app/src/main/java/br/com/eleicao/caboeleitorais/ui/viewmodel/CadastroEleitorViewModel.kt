@@ -2,7 +2,7 @@ package br.com.eleicao.caboeleitorais.ui.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.eleicao.caboeleitorais.model.Eleitor
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
 import br.com.eleicao.caboeleitorais.repository.SetorRepository
 

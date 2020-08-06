@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.eleicao.caboeleitorais.extension.unaccent
-import br.com.eleicao.caboeleitorais.model.Eleitor
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.model.Filtro
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
 import kotlinx.coroutines.Dispatchers

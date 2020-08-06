@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import br.com.eleicao.caboeleitorais.R
-import br.com.eleicao.caboeleitorais.model.Eleitor
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.ui.viewmodel.ComponentesVisuais
 import br.com.eleicao.caboeleitorais.ui.viewmodel.EstadoAppViewModel
 import br.com.eleicao.caboeleitorais.ui.viewmodel.PagamentoViewModel
@@ -124,14 +124,14 @@ class PagamentoFragment : BaseFragment() {
 
     ): Eleitor? = try {
         Eleitor(
-                codigo = eleitorEscolhido.codigo,
-                nome = nomeEleitor,
-                endereco = enderecoEleitor,
-                setor = setorEleitor,
-                telefone = telefoneEleitor,
-                dataNascimento = dataNascimentoEleitor,
-                colegioDeVotacao = colegioVotacaoEleitor,
-                observacao = observacaoEleitor
+            codigo = eleitorEscolhido.codigo,
+            nome = nomeEleitor,
+            endereco = enderecoEleitor,
+            setor = setorEleitor,
+            telefone = telefoneEleitor,
+            dataNascimento = dataNascimentoEleitor,
+            colegioDeVotacao = colegioVotacaoEleitor,
+            observacao = observacaoEleitor
         )
     } catch (e: NumberFormatException) {
         null

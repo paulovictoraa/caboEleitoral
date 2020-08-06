@@ -1,18 +1,16 @@
 package br.com.eleicao.caboeleitorais.ui.fragment
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.eleicao.caboeleitorais.R
+import br.com.eleicao.caboeleitorais.extension.hideKeyboard
 import br.com.eleicao.caboeleitorais.model.Login
-import br.com.eleicao.caboeleitorais.service.AppService
 import br.com.eleicao.caboeleitorais.ui.viewmodel.ComponentesVisuais
 import br.com.eleicao.caboeleitorais.ui.viewmodel.EstadoAppViewModel
 import br.com.eleicao.caboeleitorais.ui.viewmodel.LoginViewModel
@@ -83,7 +81,10 @@ class LoginFragment : Fragment() {
 
     private fun observaSeEstaLogado() {
         viewModel.isLogado.observe(viewLifecycleOwner, Observer { isLogado ->
-            if (isLogado) vaiParaListaProdutos()
+            if (isLogado) {
+                this.hideKeyboard()
+                vaiParaSincronizacao()
+            }
         })
     }
 
@@ -107,8 +108,8 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun vaiParaListaProdutos() {
-        val direcao = LoginFragmentDirections.acaoLoginParaListaEleitores()
+    private fun vaiParaSincronizacao() {
+        val direcao = LoginFragmentDirections.actionLoginParaSplashFragment()
         controlador.navigate(direcao)
     }
 

@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.eleicao.caboeleitorais.R
 import br.com.eleicao.caboeleitorais.extension.showSnackBar
-import br.com.eleicao.caboeleitorais.model.Eleitor
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.model.UsuarioInstance
 import br.com.eleicao.caboeleitorais.ui.viewmodel.CadastroEleitorViewModel
 import br.com.eleicao.caboeleitorais.ui.viewmodel.ComponentesVisuais

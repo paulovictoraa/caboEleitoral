@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import br.com.eleicao.caboeleitorais.database.AppDatabase
 import br.com.eleicao.caboeleitorais.database.dao.EleitorDAO
 import br.com.eleicao.caboeleitorais.database.dao.SetorDAO
-import br.com.eleicao.caboeleitorais.model.Eleitor
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.model.Setor
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
 import br.com.eleicao.caboeleitorais.repository.LoginRepository
@@ -126,6 +126,7 @@ val viewModelModule = module {
     viewModel { EstadoAppViewModel() }
     viewModel { CadastroEleitorViewModel(get(), get()) }
     viewModel { FiltroDialogViewModel(get()) }
+    viewModel { SplashViewModel(get()) }
 }
 
 val serviceModule = module {

@@ -58,7 +58,7 @@
         android:id="@+id/cadastroEleitorFragment"
         android:name="br.com.eleicao.caboeleitorais.ui.fragment.CadastroEleitorFragment"
         android:label="Cadastrar eleitor"
-        tools:layout="@layout/formulario_eleitor" >
+        tools:layout="@layout/formulario_eleitor">
         <action
             android:id="@+id/acao_cadastroEleitorFragment_para_listaEleitores"
             app:destination="@id/listaEleitores" />
@@ -97,6 +97,13 @@
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            <action
+                android:id="@+id/action_login_para_splashFragment"
+                app:destination="@id/splashFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popUpTo="@id/login"
+                app:popUpToInclusive="true" />
         </fragment>
         <fragment
             android:id="@+id/cadastroUsuario"
@@ -109,4 +116,15 @@
         android:name="br.com.eleicao.caboeleitorais.ui.fragment.CadastroUsuarioFragment"
         android:label="Lista de pagamentos"
         tools:layout="@layout/lista_pagamentos" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="br.com.eleicao.caboeleitorais.ui.fragment.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_listaEleitores"
+            app:destination="@id/listaEleitores"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

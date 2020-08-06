@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 
 @Entity(
     foreignKeys = [ForeignKey(
