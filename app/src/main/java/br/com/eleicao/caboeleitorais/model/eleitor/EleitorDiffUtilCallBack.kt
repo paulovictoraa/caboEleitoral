@@ -1,7 +1,7 @@
 import androidx.recyclerview.widget.DiffUtil
 import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 
-class TransacaoDiffUtilCallBack : DiffUtil.ItemCallback<Eleitor>() {
+class EleitorDiffUtilCallBack : DiffUtil.ItemCallback<Eleitor>() {
     override fun areItemsTheSame(oldItem: Eleitor, newItem: Eleitor): Boolean {
         return oldItem.codigo == newItem.codigo
     }

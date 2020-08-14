@@ -1,12 +1,8 @@
 package br.com.eleicao.caboeleitorais.model.eleitor
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity
 data class Eleitor(
-    @PrimaryKey(autoGenerate = true)
     val codigo: Long = 0,
     val nome: String = "",
     val endereco: String = "",

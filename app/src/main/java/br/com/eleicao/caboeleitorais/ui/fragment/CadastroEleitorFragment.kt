@@ -111,6 +111,7 @@ class CadastroEleitorFragment : BaseFragment() {
             .isObrigatorio(editar_setor.editText)
             .isObrigatorio(editar_telefone.editText)
             .isObrigatorio(editar_data_nascimento.editText)
+            .isCampoData(editar_data_nascimento.editText)
             .isObrigatorio(editar_colegio_votacao.editText)
             .build()
 

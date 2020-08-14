@@ -10,9 +10,9 @@ import br.com.eleicao.caboeleitorais.database.dao.EleitorDAO
 import br.com.eleicao.caboeleitorais.database.dao.SetorDAO
 import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.model.Setor
+import br.com.eleicao.caboeleitorais.model.eleitor.EleitorPersistence
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
 import br.com.eleicao.caboeleitorais.repository.LoginRepository
-import br.com.eleicao.caboeleitorais.repository.PagamentoRepository
 import br.com.eleicao.caboeleitorais.repository.SetorRepository
 import br.com.eleicao.caboeleitorais.service.AppService
 import br.com.eleicao.caboeleitorais.ui.fragment.DetalhesEleitorFragment
@@ -44,7 +44,7 @@ val testeDatabaseModule = module {
                         val setorDao: SetorDAO by inject()
                         eleitorDao.salvaTodos(
                             listOf(
-                                Eleitor(
+                                EleitorPersistence(
                                     codigo = 1,
                                     nome = "Paulo Victor Alexandre Alves",
                                     endereco = "Rua 1121, número 99",
@@ -55,7 +55,7 @@ val testeDatabaseModule = module {
                                     colegioDeVotacao = "CEJAT",
                                     observacao = "Residência em frente a garagem da Nissan"
                                 ),
-                                Eleitor(
+                                EleitorPersistence(
                                     codigo = 2,
                                     nome = "Jonelito Lenda",
                                     endereco = "Lá no morro do universitário",
@@ -66,7 +66,7 @@ val testeDatabaseModule = module {
                                     caboEleitoral = "0",
                                     observacao = "Careca de tanta habilidade"
                                 ),
-                                Eleitor(
+                                EleitorPersistence(
                                     codigo = 3,
                                     nome = "Mano Manoel",
                                     endereco = "Rua curvada do Cepal",
@@ -91,22 +91,13 @@ val testeDatabaseModule = module {
 }
 
 val databaseModule = module {
-//    single<AppDatabase> {
-//        Room.databaseBuilder(
-//            get(),
-//            AppDatabase::class.java,
-//            NOME_BANCO_DE_DADOS
-//        ).build()
-//    }
     single { AppDatabase.getInstance(get()) }
 }
 
 val daoModule = module {
     single { get<AppDatabase>().eleitorDao() }
-    single { get<AppDatabase>().pagamentoDao() }
     single { get<AppDatabase>().setorDao() }
     single { EleitorRepository(get(), get()) }
-    single { PagamentoRepository(get()) }
     single { LoginRepository(get(), get()) }
     single { SetorRepository(get()) }
     single<SharedPreferences> { PreferenceManager.getDefaultSharedPreferences(get()) }
@@ -121,7 +112,6 @@ val uiModule = module {
 val viewModelModule = module {
     viewModel { EleitoresViewModel(get()) }
     viewModel { (id: Long) -> DetalhesEleitorViewModel(id, get()) }
-    viewModel { PagamentoViewModel(get(), get()) }
     viewModel { LoginViewModel(get()) }
     viewModel { EstadoAppViewModel() }
     viewModel { CadastroEleitorViewModel(get(), get()) }

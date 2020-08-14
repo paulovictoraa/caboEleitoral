@@ -3,7 +3,6 @@ package br.com.eleicao.caboeleitorais.model.eleitor
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
-import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
@@ -24,7 +23,7 @@ class EleitorDataSource(
             onLoading?.value = true
             try {
                 val eleitores = repository.fetch(0)
-                repository.salvaTodos(eleitores)
+                repository.salvarTodos(eleitores)
                 callback.onResult(eleitores, null, 1)
             } catch (e: Exception) {
                 Log.i("teste", "teste")

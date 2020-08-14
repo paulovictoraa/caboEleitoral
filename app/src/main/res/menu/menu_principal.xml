@@ -14,8 +14,10 @@
         android:title="@string/pesquisar"
         android:visible="false"
         app:showAsAction="ifRoom" />
+    <item android:id="@+id/menu_principal_sincronizar"
+        android:title="Sincronizar"
+        app:showAsAction="never"/>
     <item android:id="@+id/menu_principal_deslogar"
-        android:title="Deslogar"
-        android:icon="@drawable/ic_action_deslogar"
-        app:showAsAction="always"/>
+        android:title="Sair"
+        app:showAsAction="never"/>
 </menu>

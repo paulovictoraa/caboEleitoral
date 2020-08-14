@@ -28,7 +28,6 @@ class ListaEleitoresFragment : BaseFragment() {
     private val estadoAppViewModel: EstadoAppViewModel by sharedViewModel()
     private val adapter: EleitorAdapter by inject()
     private val controlador by lazy { findNavController() }
-    private var filtro = Filtro()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,8 +48,15 @@ class ListaEleitoresFragment : BaseFragment() {
         )
         configuraRecyclerView()
         configuraFabButton()
-        observaEleitores()
-        observaIsLoading()
+        observarEleitoresPaginado()
+    }
+
+    private fun observarEleitoresPaginado() {
+        viewModel.buscarEleitoresPaginado().observe(viewLifecycleOwner, Observer {
+            it?.let { pagedList ->
+                adapter.submitList(pagedList)
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -64,28 +70,36 @@ class ListaEleitoresFragment : BaseFragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_principal_filtro) {
-            supportFragmentManager {
-                FiltroDialog.getInstance(filtro) {
-                    filtraEleitores(it, item)
-                }.show(this, "")
+        when (item.itemId) {
+            R.id.menu_principal_filtro -> {
+                abrirDialogFiltro(item)
+            }
+            R.id.menu_principal_sincronizar -> {
+                val direcao =
+                    ListaEleitoresFragmentDirections.actionListaEleitoresToSplashFragment()
+                controlador.navigate(direcao)
             }
         }
+
         return super.onOptionsItemSelected(item)
     }
 
-    private fun filtraEleitores(filtro: Filtro, item: MenuItem) {
+    private fun abrirDialogFiltro(item: MenuItem) {
+        val filtro = viewModel.filtro.value ?: Filtro()
+        supportFragmentManager {
+            FiltroDialog.getInstance(filtro) {
+                filtrarEleitores(it, item)
+            }.show(this, "")
+        }
+    }
+
+    private fun filtrarEleitores(filtro: Filtro, item: MenuItem) {
         if (filtro.setor.isEmpty()) {
-            this.filtro = Filtro()
-            val eleitores = viewModel.getEleitores()
-            adapter.atualiza(eleitores)
             item.setIcon(R.drawable.ic_filter_list_white_24dp)
         } else {
-            this.filtro = filtro
-            val eleitoresFiltrados = viewModel.filter(this.filtro)
-            adapter.atualiza(eleitoresFiltrados)
             item.setIcon(R.drawable.ic_filter_checked)
         }
+        viewModel.filtrar(filtro)
     }
 
     private fun configuraSearchView(searchView: SearchView) {
@@ -93,8 +107,7 @@ class ListaEleitoresFragment : BaseFragment() {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
-                val eleitoresFiltrados = viewModel.filter(newText)
-                adapter.atualiza(eleitoresFiltrados)
+                viewModel.filtrar(newText)
                 return true
             }
 
@@ -108,24 +121,6 @@ class ListaEleitoresFragment : BaseFragment() {
         lista_eleitores_button.setOnClickListener {
             vaiParaCadastroDoEleitor()
         }
-    }
-
-    private fun observaIsLoading() {
-        viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->
-            if (isLoading) {
-                progress_bar.visibility = View.VISIBLE
-                lista_eleitores_recyclerview.visibility = View.GONE
-            } else {
-                progress_bar.visibility = View.GONE
-                lista_eleitores_recyclerview.visibility = View.VISIBLE
-            }
-        })
-    }
-
-    private fun observaEleitores() {
-        viewModel.eleitores.observe(viewLifecycleOwner, Observer {
-            it?.let { adapter.atualiza(it) }
-        })
     }
 
     private fun configuraRecyclerView() {

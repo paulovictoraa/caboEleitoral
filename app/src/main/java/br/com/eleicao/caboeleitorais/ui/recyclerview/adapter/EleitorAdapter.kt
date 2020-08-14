@@ -1,20 +1,21 @@
 package br.com.eleicao.caboeleitorais.ui.recyclerview.adapter
 
+import EleitorDiffUtilCallBack
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.eleicao.caboeleitorais.R
-import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.model.UsuarioInstance
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import kotlinx.android.synthetic.main.item_eleitor.view.*
 
 class EleitorAdapter(
     private val context: Context,
-    private val eleitors: MutableList<Eleitor> = mutableListOf(),
     var onItemClickListener: (eleitor: Eleitor) -> Unit = {}
-) : RecyclerView.Adapter<EleitorAdapter.ViewHolder>() {
+) : PagedListAdapter<Eleitor, EleitorAdapter.ViewHolder>(EleitorDiffUtilCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val viewCriada = LayoutInflater.from(context).inflate(
@@ -25,17 +26,18 @@ class EleitorAdapter(
         return ViewHolder(viewCriada)
     }
 
-    override fun getItemCount() = eleitors.size
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.vincula(eleitors[position])
+        val eleitor = getItem(position)
+        eleitor?.let {
+            holder.vincula(it)
+        }
     }
 
     fun atualiza(eleitoresNovos: List<Eleitor>) {
-        notifyItemRangeRemoved(0, eleitors.size)
-        eleitors.clear()
-        eleitors.addAll(eleitoresNovos)
-        notifyItemRangeInserted(0, eleitors.size)
+//        notifyItemRangeRemoved(0, eleitors.size)
+//        eleitors.clear()
+//        eleitors.addAll(eleitoresNovos)
+//        notifyItemRangeInserted(0, eleitors.size)
     }
 
     inner class ViewHolder(itemView: View) :

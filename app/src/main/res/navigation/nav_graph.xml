@@ -19,39 +19,19 @@
         <action
             android:id="@+id/acao_listaEleitores_para_cadastroEleitorFragment"
             app:destination="@id/cadastroEleitorFragment" />
+        <action
+            android:id="@+id/action_listaEleitores_to_splashFragment"
+            app:destination="@id/splashFragment"
+            app:popUpTo="@id/listaEleitores"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/detalhesEleitor"
         android:name="br.com.eleicao.caboeleitorais.ui.fragment.DetalhesEleitorFragment"
         android:label="Detalhes do eleitor"
         tools:layout="@layout/detalhes_eleitor">
-        <action
-            android:id="@+id/acao_detalhesEleitor_para_pagamento"
-            app:destination="@id/pagamento"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <argument
-            android:name="produtoId"
-            app:argType="long" />
-    </fragment>
-    <fragment
-        android:id="@+id/pagamento"
-        android:name="br.com.eleicao.caboeleitorais.ui.fragment.PagamentoFragment"
-        android:label="Editar eleitor"
-        tools:layout="@layout/formulario_eleitor">
-        <action
-            android:id="@+id/acao_pagamento_para_listaEleitor"
-            app:destination="@id/listaEleitores"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:popUpTo="@+id/listaEleitores"
-            app:popUpToInclusive="true" />
-        <argument
-            android:name="produtoId"
+            android:name="eleitorId"
             app:argType="long" />
     </fragment>
     <fragment
@@ -61,7 +41,9 @@
         tools:layout="@layout/formulario_eleitor">
         <action
             android:id="@+id/acao_cadastroEleitorFragment_para_listaEleitores"
-            app:destination="@id/listaEleitores" />
+            app:destination="@id/listaEleitores"
+            app:popUpTo="@id/listaEleitores"
+            app:popUpToInclusive="true" />
     </fragment>
     <action
         android:id="@+id/acao_global_login"
@@ -111,11 +93,6 @@
             android:label="Cadastro de usuário"
             tools:layout="@layout/cadastro_usuario" />
     </navigation>
-    <fragment
-        android:id="@+id/listaPagamentos"
-        android:name="br.com.eleicao.caboeleitorais.ui.fragment.CadastroUsuarioFragment"
-        android:label="Lista de pagamentos"
-        tools:layout="@layout/lista_pagamentos" />
     <fragment
         android:id="@+id/splashFragment"
         android:name="br.com.eleicao.caboeleitorais.ui.fragment.SplashFragment"

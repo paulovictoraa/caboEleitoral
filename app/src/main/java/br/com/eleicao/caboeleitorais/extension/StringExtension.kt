@@ -5,6 +5,9 @@ import org.json.JSONObject
 import java.io.UnsupportedEncodingException
 import java.nio.charset.Charset
 import java.text.Normalizer
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 private val REGEX_UNACCENT = "\\p{InCombiningDiacriticalMarks}+".toRegex()
 
@@ -21,4 +24,21 @@ fun String.JWTDecode(propertie: String) =
         ""
     }
 
-fun String.getJson() = String(Base64.decode(this, Base64.URL_SAFE), Charset.forName( "UTF-8" ))
+fun String.getJson() = String(Base64.decode(this, Base64.URL_SAFE), Charset.forName("UTF-8"))
+
+fun String.toCalendar(format: String = "dd/MM/yyyy"): Calendar? {
+    val dateFormat = SimpleDateFormat(format, Locale.getDefault())
+    dateFormat.isLenient = false
+    return try {
+        val calendar: Calendar = Calendar.getInstance()
+        val parse = dateFormat.parse(this)
+        if (parse != null) {
+            calendar.time = parse
+            calendar
+        } else {
+            null
+        }
+    } catch (e: Exception) {
+        null
+    }
+}

@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.eleicao.caboeleitorais.R
+import br.com.eleicao.caboeleitorais.extension.isOffiline
+import br.com.eleicao.caboeleitorais.extension.isOnline
+import br.com.eleicao.caboeleitorais.extension.showSnackBar
 import br.com.eleicao.caboeleitorais.ui.viewmodel.ComponentesVisuais
 import br.com.eleicao.caboeleitorais.ui.viewmodel.EstadoAppViewModel
 import br.com.eleicao.caboeleitorais.ui.viewmodel.SplashViewModel
@@ -37,6 +40,11 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (this.isOffiline()) {
+            vaiParaListaEleitores()
+            showSnackBar("Falha ao conectar com a internet, tente novamente mais tarde")
+            return
+        }
         estadoAppViewModel.temComponentes =
             ComponentesVisuais(appBar = false, bottomNavigation = false)
         observarMensagem()
@@ -46,10 +54,14 @@ class SplashFragment : Fragment() {
     private fun observarOnFinish() {
         splashViewModel.onFinish.observe(viewLifecycleOwner, Observer {
             if (it) {
-                val direcao = SplashFragmentDirections.actionSplashFragmentToListaEleitores()
-                controlador.navigate(direcao)
+                vaiParaListaEleitores()
             }
         })
+    }
+
+    private fun vaiParaListaEleitores() {
+        val direcao = SplashFragmentDirections.actionSplashFragmentToListaEleitores()
+        controlador.navigate(direcao)
     }
 
     private fun observarMensagem() {

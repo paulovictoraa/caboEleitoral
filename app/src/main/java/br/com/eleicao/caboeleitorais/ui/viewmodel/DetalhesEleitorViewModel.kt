@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
 
 class DetalhesEleitorViewModel(
-    produtoId: Long,
+    eleitorId: Long,
     repository: EleitorRepository
 ) : ViewModel() {
 
-    val produtoEncontrado = repository.buscaPorId(produtoId)
+    val eleitor = repository.buscaPorId(eleitorId)
 
 }

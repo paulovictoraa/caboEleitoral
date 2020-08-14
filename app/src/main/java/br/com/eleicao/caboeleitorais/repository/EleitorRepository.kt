@@ -3,9 +3,16 @@ package br.com.eleicao.caboeleitorais.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import androidx.paging.PagedList
+import androidx.paging.toLiveData
 import br.com.eleicao.caboeleitorais.database.dao.EleitorDAO
+import br.com.eleicao.caboeleitorais.extension.unaccent
+import br.com.eleicao.caboeleitorais.model.Filtro
 import br.com.eleicao.caboeleitorais.model.UsuarioInstance
 import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
+import br.com.eleicao.caboeleitorais.model.eleitor.toModel
+import br.com.eleicao.caboeleitorais.model.eleitor.toPersistence
 import br.com.eleicao.caboeleitorais.service.CaboEleitoralService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -19,23 +26,45 @@ class EleitorRepository(
     private val job = Job()
     private val scope = CoroutineScope(Dispatchers.IO + job)
 
-    suspend fun buscaTodos(): List<Eleitor> {
-        try {
-            val eleitores = if (UsuarioInstance.isAdmin()) {
-                service.listar()
-            } else {
-                service.listarPorId(UsuarioInstance.getCodigo())
-            }
-            salvaTodos(eleitores)
-        } catch (e: Exception) {
-            Log.e("", e.message ?: "")
-        } finally {
-            return dao.buscaTodos()
-        }
-
+    companion object {
+        private const val PAGE_SIZE = 50
     }
 
-    fun salvaTodos(eleitores: List<Eleitor>) = dao.salvaTodos(eleitores)
+    fun buscaTodos(): LiveData<PagedList<Eleitor>> =
+        dao.buscaTodos().map { it.toModel() }.toLiveData(pageSize = PAGE_SIZE)
+
+    fun buscaTodos(filtro: Filtro): LiveData<PagedList<Eleitor>> {
+        val nome = "%${filtro.nome.unaccent()}%"
+        val setor = filtro.setor
+        val cabo = filtro.cabo
+        return when {
+            filtro.isPossuiTodosFiltros() -> {
+                dao.buscaPorNomeESetorECabo(nome, setor, cabo)
+            }
+            filtro.isPossuiFiltrosNomeECabo() -> {
+                dao.buscaPorNomeECabo(nome, cabo)
+            }
+            filtro.isPossuiFiltrosNomeESetor() -> {
+                dao.buscaPorNomeESetor(nome, setor)
+            }
+            filtro.isPossuiFiltrosSetorECabo() -> {
+                dao.buscaPorSetorECabo(setor, cabo)
+            }
+            filtro.cabo.isNotEmpty() -> {
+                dao.buscaPorCabo(cabo)
+            }
+            filtro.setor.isNotEmpty() -> {
+                dao.buscaPorSetor(setor)
+            }
+            else -> {
+                dao.buscaPorNome(nome)
+            }
+        }.map { it.toModel() }.toLiveData(pageSize = PAGE_SIZE)
+    }
+
+    fun buscarTodosNaoEnviados() = dao.buscaTodosNaoEnviados().toModel()
+
+    fun salvarTodos(eleitores: List<Eleitor>) = dao.salvaTodos(eleitores.toPersistence())
 
     suspend fun fetch(offSet: Int): List<Eleitor> {
         return try {
@@ -45,23 +74,41 @@ class EleitorRepository(
                 service.listarPorId(UsuarioInstance.getCodigo())
             }
         } catch (e: Exception) {
-            Log.e("", e.message ?: "")
             emptyList()
         }
     }
 
-    fun buscaPorId(id: Long): LiveData<Eleitor> = dao.buscaPorId(id)
+    fun buscaPorId(id: Long): LiveData<Eleitor> =
+        Transformations.map(dao.buscaPorId(id)) { it.toModel() }
 
-    fun salva(eleitor: Eleitor): LiveData<Resource<Long>> {
+    fun salvar(eleitor: Eleitor): LiveData<Resource<Long>> {
         return MutableLiveData<Resource<Long>>().also { liveData ->
             scope.launch {
                 try {
                     val eleitorNuvem = service.salvar(UsuarioInstance.getCodigo(), eleitor)
-                    val id = dao.salva(eleitorNuvem)
+                    val id = dao.salva(eleitorNuvem.toPersistence())
                     liveData.postValue(Resource(id))
                 } catch (e: Exception) {
-                    val id = dao.salva(eleitor)
+                    val id = dao.salva(eleitor.toPersistence())
                     liveData.postValue(Resource(id))
+                }
+            }
+        }
+    }
+
+    fun salvarTodosNuvem(eleitoresNaoEnviados: List<Eleitor>) {
+        scope.launch {
+            for (eleitor: Eleitor in eleitoresNaoEnviados) {
+                try {
+                    val eleitorNuvem = service.salvar(UsuarioInstance.getCodigo(), eleitor)
+                    if (!eleitorNuvem.nome.isNullOrEmpty()) {
+                        val eleitorPersistence = eleitorNuvem.toPersistence()
+                        dao.delete(eleitorPersistence)
+                        dao.salva(eleitorPersistence)
+                    }
+                } catch (e: java.lang.Exception) {
+                    Log.e("Eleitor nao enviado: ", eleitor.nome)
+
                 }
             }
         }

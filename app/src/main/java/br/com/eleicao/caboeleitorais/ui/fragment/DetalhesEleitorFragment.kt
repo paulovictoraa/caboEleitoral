@@ -20,12 +20,9 @@ import org.koin.core.parameter.parametersOf
 class DetalhesEleitorFragment : BaseFragment() {
 
     private val argumentos by navArgs<DetalhesEleitorFragmentArgs>()
-    private val produtoId by lazy {
-        argumentos.produtoId
-    }
-    private val viewModel: DetalhesEleitorViewModel by viewModel { parametersOf(produtoId) }
+    private val eleitorId by lazy { argumentos.eleitorId }
+    private val viewModel: DetalhesEleitorViewModel by viewModel { parametersOf(eleitorId) }
     private val estadoAppViewModel: EstadoAppViewModel by sharedViewModel()
-    private val controlador by lazy { findNavController() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +43,7 @@ class DetalhesEleitorFragment : BaseFragment() {
     }
 
     private fun buscaProduto() {
-        viewModel.produtoEncontrado.observe(viewLifecycleOwner, Observer {
+        viewModel.eleitor.observe(viewLifecycleOwner, Observer {
             it?.let { eleitor ->
                 detalhes_eleitor_nome.text = eleitor.nome
                 detalhes_eleitor_endereco.text = eleitor.endereco

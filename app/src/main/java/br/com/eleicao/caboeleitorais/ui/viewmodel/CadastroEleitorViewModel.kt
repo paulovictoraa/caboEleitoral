@@ -13,7 +13,7 @@ class CadastroEleitorViewModel(
 
     val isLoading: MutableLiveData<Boolean> = MutableLiveData()
 
-    fun salva(eleitor: Eleitor) = eleitorRepository.salva(eleitor)
+    fun salva(eleitor: Eleitor) = eleitorRepository.salvar(eleitor)
 
     fun buscarSetores() = setorRepository.buscarTodos()
 

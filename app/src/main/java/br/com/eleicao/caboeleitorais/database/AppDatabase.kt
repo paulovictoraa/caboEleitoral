@@ -10,23 +10,20 @@ import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import br.com.eleicao.caboeleitorais.database.converter.ConversorBigDecimal
 import br.com.eleicao.caboeleitorais.database.dao.EleitorDAO
-import br.com.eleicao.caboeleitorais.database.dao.PagamentoDAO
 import br.com.eleicao.caboeleitorais.database.dao.SetorDAO
-import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
-import br.com.eleicao.caboeleitorais.model.Pagamento
 import br.com.eleicao.caboeleitorais.model.Setor
+import br.com.eleicao.caboeleitorais.model.eleitor.EleitorPersistence
 import br.com.eleicao.caboeleitorais.worker.SetorWorker
 
 @Database(
     version = 4,
-    entities = [Eleitor::class, Pagamento::class, Setor::class],
+    entities = [EleitorPersistence::class, Setor::class],
     exportSchema = false
 )
 @TypeConverters(ConversorBigDecimal::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun eleitorDao(): EleitorDAO
     abstract fun setorDao(): SetorDAO
-    abstract fun pagamentoDao(): PagamentoDAO
 
     companion object {
         private const val NOME_BANCO_DE_DADOS = "caboeleitorais.db"

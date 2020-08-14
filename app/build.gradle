@@ -12,7 +12,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "br.com.alura.caboeleitorais"
+        applicationId "br.com.caboeleitorais"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
@@ -75,10 +75,15 @@ dependencies {
     def work_version = "2.3.4"
 
     implementation "androidx.work:work-runtime-ktx:$work_version"
+//
+//    def page_version = "1.0.1"
+//
+//    implementation "android.arch.paging:runtime:$page_version"
 
-    def page_version = "1.0.1"
+    def paging_version = "2.1.2"
 
-    implementation "android.arch.paging:runtime:$page_version"
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'

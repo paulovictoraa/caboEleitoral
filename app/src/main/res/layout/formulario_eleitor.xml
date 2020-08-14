@@ -176,6 +176,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="@string/confirmar_edição"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/editar_endereco"
         app:layout_constraintStart_toStartOf="@id/editar_endereco" />

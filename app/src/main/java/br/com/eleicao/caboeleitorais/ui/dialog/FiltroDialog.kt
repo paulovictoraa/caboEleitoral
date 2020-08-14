@@ -3,6 +3,8 @@ package br.com.eleicao.caboeleitorais.ui.dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
@@ -10,6 +12,7 @@ import androidx.lifecycle.Observer
 import br.com.eleicao.caboeleitorais.R
 import br.com.eleicao.caboeleitorais.extension.showSnackBar
 import br.com.eleicao.caboeleitorais.model.Filtro
+import br.com.eleicao.caboeleitorais.model.UsuarioInstance
 import br.com.eleicao.caboeleitorais.ui.viewmodel.FiltroDialogViewModel
 import kotlinx.android.synthetic.main.dialog_filter.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -52,15 +55,25 @@ class FiltroDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         autoCompleteTextViewSetor.setText(filtro.setor, false)
+        configurarEditTextCabo()
         observaLoading()
         observaSetores()
         configuraBotaoLimpar()
         configuraBotaSalvar()
     }
 
+    private fun configurarEditTextCabo() {
+        if (UsuarioInstance.isAdmin()) {
+            editTextViewCabo.visibility = VISIBLE
+        } else {
+            editTextViewCabo.visibility = GONE
+        }
+    }
+
     private fun configuraBotaSalvar() {
         buttonApply.setOnClickListener {
             val setor = autoCompleteTextViewSetor.text.toString()
+            val cabo = editTextViewCabo.text.toString()
             when {
                 setor.isEmpty() -> {
                     showSnackBar("Nenhum setor selecionado")
@@ -69,7 +82,7 @@ class FiltroDialog : DialogFragment() {
                     showSnackBar("Setor selecionado inválido")
                 }
                 else -> {
-                    onFinished(Filtro(setor))
+                    onFinished(Filtro(setor, cabo))
                     this.dismiss()
                 }
             }
