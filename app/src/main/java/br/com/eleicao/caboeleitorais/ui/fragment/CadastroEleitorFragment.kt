@@ -10,8 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.eleicao.caboeleitorais.R
 import br.com.eleicao.caboeleitorais.extension.showSnackBar
-import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
+import br.com.eleicao.caboeleitorais.extension.showToast
 import br.com.eleicao.caboeleitorais.model.UsuarioInstance
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.ui.viewmodel.CadastroEleitorViewModel
 import br.com.eleicao.caboeleitorais.ui.viewmodel.ComponentesVisuais
 import br.com.eleicao.caboeleitorais.ui.viewmodel.EstadoAppViewModel
@@ -20,6 +21,7 @@ import br.com.eleicao.caboeleitorais.util.ValidadorEditTextBuilder
 import kotlinx.android.synthetic.main.formulario_eleitor.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
+import retrofit2.HttpException
 
 private const val FALHA_AO_CADASTRAR_DADOS = "Falha ao editar dados"
 private const val SALVO_COM_SUCESSO = "Salvo com sucesso"
@@ -48,8 +50,30 @@ class CadastroEleitorFragment : BaseFragment() {
         configuraBotaoSalvar()
         observaSetores()
         observaLoading()
+        observaEleitor()
+        observaErro()
         configurarMascara(Mask.MaskType.TEL, editar_telefone.editText)
         configurarMascara(Mask.MaskType.DATA_NASC, editar_data_nascimento.editText)
+    }
+
+    private fun observaErro() {
+        viewModel.onError.observe(viewLifecycleOwner, Observer {
+            if (it is HttpException && it.code() == 401) {
+                showToast("Sessão expirou, por favor faça o login novamente")
+                vaiParaLogin()
+            } else {
+                showSnackBar(it.message)
+            }
+        })
+    }
+
+    private fun observaEleitor() {
+        viewModel.eleitor.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                showSnackBar("Salvo com sucesso")
+                vaiParaListaEleitores()
+            }
+        })
     }
 
     private fun configurarMascara(type: Mask.MaskType, editText: EditText?) {
@@ -68,15 +92,7 @@ class CadastroEleitorFragment : BaseFragment() {
         }
     }
 
-    private fun salvar(eleitor: Eleitor) {
-        viewModel.salva(eleitor)
-            .observe(this, Observer {
-                it?.dado?.let {
-                    showSnackBar("Salvo com sucesso")
-                    vaiParaListaEleitores()
-                }
-            })
-    }
+    private fun salvar(eleitor: Eleitor) = viewModel.salva(eleitor)
 
     private fun vaiParaListaEleitores() {
         val direcao =

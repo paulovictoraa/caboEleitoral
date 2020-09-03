@@ -13,7 +13,7 @@ data class Eleitor(
     @SerializedName("cabo_eleitoral")
     val caboEleitoral: String = "",
     @SerializedName("colegio_de_votacao")
-    val colegioDeVotacao: String? = "",
+    val colegioDeVotacao: String = "",
     val observacao: String? = "",
     @SerializedName("data_insercao")
     val dataInsercao: String? = ""

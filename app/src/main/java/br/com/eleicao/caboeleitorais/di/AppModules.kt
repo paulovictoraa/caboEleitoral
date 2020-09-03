@@ -8,7 +8,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import br.com.eleicao.caboeleitorais.database.AppDatabase
 import br.com.eleicao.caboeleitorais.database.dao.EleitorDAO
 import br.com.eleicao.caboeleitorais.database.dao.SetorDAO
-import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.model.Setor
 import br.com.eleicao.caboeleitorais.model.eleitor.EleitorPersistence
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
@@ -79,11 +78,13 @@ val testeDatabaseModule = module {
                                 )
                             )
                         )
-                        setorDao.salvaTodos(listOf(
-                            Setor(1, "Universitário"),
-                            Setor(2, "Oeste"),
-                            Setor(3, "Marista")
-                        ))
+                        setorDao.salvaTodos(
+                            listOf(
+                                Setor(1, "Universitário"),
+                                Setor(2, "Oeste"),
+                                Setor(3, "Marista")
+                            )
+                        )
                     }
                 }
             }).build()
@@ -116,9 +117,9 @@ val viewModelModule = module {
     viewModel { EstadoAppViewModel() }
     viewModel { CadastroEleitorViewModel(get(), get()) }
     viewModel { FiltroDialogViewModel(get()) }
-    viewModel { SplashViewModel(get()) }
+    viewModel { SplashViewModel(get(), get()) }
 }
 
 val serviceModule = module {
-    single { AppService.getInstance() }
+    single { AppService().createInstance() }
 }

@@ -2,7 +2,6 @@ package br.com.eleicao.caboeleitorais.repository
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.paging.PagedList
 import androidx.paging.toLiveData
@@ -81,31 +80,15 @@ class EleitorRepository(
     fun buscaPorId(id: Long): LiveData<Eleitor> =
         Transformations.map(dao.buscaPorId(id)) { it.toModel() }
 
-    fun salvar(eleitor: Eleitor): LiveData<Resource<Long>> {
-        return MutableLiveData<Resource<Long>>().also { liveData ->
-            scope.launch {
-                try {
-                    val eleitorNuvem = service.salvar(UsuarioInstance.getCodigo(), eleitor)
-                    val id = dao.salva(eleitorNuvem.toPersistence())
-                    liveData.postValue(Resource(id))
-                } catch (e: Exception) {
-                    val id = dao.salva(eleitor.toPersistence())
-                    liveData.postValue(Resource(id))
-                }
-            }
-        }
-    }
+    suspend fun salvar(eleitor: Eleitor) = service.salvar(UsuarioInstance.getCodigo(), eleitor)
+
+    fun salvarLocal(eleitorNuvem: Eleitor) = dao.salva(eleitorNuvem.toPersistence())
 
     fun salvarTodosNuvem(eleitoresNaoEnviados: List<Eleitor>) {
         scope.launch {
             for (eleitor: Eleitor in eleitoresNaoEnviados) {
                 try {
-                    val eleitorNuvem = service.salvar(UsuarioInstance.getCodigo(), eleitor)
-                    if (!eleitorNuvem.nome.isNullOrEmpty()) {
-                        val eleitorPersistence = eleitorNuvem.toPersistence()
-                        dao.delete(eleitorPersistence)
-                        dao.salva(eleitorPersistence)
-                    }
+                    service.salvar(UsuarioInstance.getCodigo(), eleitor)
                 } catch (e: java.lang.Exception) {
                     Log.e("Eleitor nao enviado: ", eleitor.nome)
 
@@ -113,5 +96,7 @@ class EleitorRepository(
             }
         }
     }
+
+    fun removerTodos() = dao.deleteAll()
 
 }

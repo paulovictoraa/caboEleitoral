@@ -38,7 +38,7 @@ abstract class BaseFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun vaiParaLogin() {
+    fun vaiParaLogin() {
         val direcao = NavGraphDirections.acaoGlobalLogin()
         controlador.navigate(direcao)
     }

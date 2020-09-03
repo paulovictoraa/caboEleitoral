@@ -60,4 +60,7 @@ interface EleitorDAO {
     @Query("SELECT * FROM Eleitor  WHERE data_insercao = ''")
     fun buscaTodosNaoEnviados(): List<EleitorPersistence>
 
+    @Query("DELETE FROM ELEITOR")
+    fun deleteAll()
+
 }

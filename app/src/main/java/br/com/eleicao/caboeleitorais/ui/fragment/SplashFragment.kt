@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.eleicao.caboeleitorais.R
 import br.com.eleicao.caboeleitorais.extension.isOffiline
-import br.com.eleicao.caboeleitorais.extension.isOnline
 import br.com.eleicao.caboeleitorais.extension.showSnackBar
+import br.com.eleicao.caboeleitorais.extension.showToast
 import br.com.eleicao.caboeleitorais.ui.viewmodel.ComponentesVisuais
 import br.com.eleicao.caboeleitorais.ui.viewmodel.EstadoAppViewModel
 import br.com.eleicao.caboeleitorais.ui.viewmodel.SplashViewModel
@@ -18,7 +17,7 @@ import kotlinx.android.synthetic.main.splash.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class SplashFragment : Fragment() {
+class SplashFragment : BaseFragment() {
 
     private val controlador by lazy {
         findNavController()
@@ -49,6 +48,14 @@ class SplashFragment : Fragment() {
             ComponentesVisuais(appBar = false, bottomNavigation = false)
         observarMensagem()
         observarOnFinish()
+        observaErro()
+    }
+
+    private fun observaErro() {
+        splashViewModel.onError.observe(viewLifecycleOwner, Observer {
+            showToast("Erro na sincronização")
+            vaiParaLogin()
+        })
     }
 
     private fun observarOnFinish() {

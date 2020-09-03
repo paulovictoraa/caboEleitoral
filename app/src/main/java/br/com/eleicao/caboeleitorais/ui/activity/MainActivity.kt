@@ -28,12 +28,12 @@ class MainActivity : AppCompatActivity() {
             title = destination.label
             viewModel.componentes.observe(this, Observer {
                 it?.let { temComponentes ->
-                    if(temComponentes.appBar){
+                    if (temComponentes.appBar) {
                         supportActionBar?.show()
                     } else {
                         supportActionBar?.hide()
                     }
-                    if(temComponentes.bottomNavigation) {
+                    if (temComponentes.bottomNavigation) {
                         main_activity_bottom_navigation.visibility = VISIBLE
                     } else {
                         main_activity_bottom_navigation.visibility = GONE

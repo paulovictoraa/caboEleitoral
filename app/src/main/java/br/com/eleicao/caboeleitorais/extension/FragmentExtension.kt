@@ -5,6 +5,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import br.com.eleicao.caboeleitorais.R
@@ -16,11 +17,17 @@ fun Fragment.supportFragmentManager(execute: FragmentManager.() -> Unit) {
     execute(supportFragmentManager)
 }
 
-fun Fragment.showSnackBar(message: String) {
+fun Fragment.showSnackBar(message: String?) {
+    if (message.isNullOrEmpty()) return
     val view = this.activity?.findViewById<View>(R.id.snackbar)
     view?.let {
         Snackbar.make(it, message, Snackbar.LENGTH_LONG).show()
     }
+}
+
+
+fun Fragment.showToast(message: String) {
+    Toast.makeText(this.context, message, Toast.LENGTH_LONG).show()
 }
 
 fun Fragment.hideKeyboard() {
