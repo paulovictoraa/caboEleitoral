@@ -18,7 +18,7 @@ class SplashViewModel(
 ) : ViewModel() {
 
     companion object {
-        private const val PAGE_LIMIT = 50
+        private const val PAGE_LIMIT = 500
     }
 
     private val _mensagem = MutableLiveData<String>()
@@ -76,13 +76,12 @@ class SplashViewModel(
     private suspend fun sincronizarEleitores() {
         _mensagem.postValue("Carregando dados!")
         var offset = 0
-        var qtdEleitores = 0
         var continuar = true
         while (continuar) {
             val eleitores = repository.fetch(offset)
             repository.salvarTodos(eleitores)
-            qtdEleitores += eleitores.size
-            _mensagem.postValue("Carregando eleitores: $qtdEleitores")
+            offset += eleitores.size
+            _mensagem.postValue("Carregando eleitores: $offset")
             if (eleitores.size < PAGE_LIMIT) {
                 continuar = false
             }

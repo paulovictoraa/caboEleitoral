@@ -33,13 +33,6 @@ class EleitorAdapter(
         }
     }
 
-    fun atualiza(eleitoresNovos: List<Eleitor>) {
-//        notifyItemRangeRemoved(0, eleitors.size)
-//        eleitors.clear()
-//        eleitors.addAll(eleitoresNovos)
-//        notifyItemRangeInserted(0, eleitors.size)
-    }
-
     inner class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
@@ -62,7 +55,11 @@ class EleitorAdapter(
         fun vincula(eleitor: Eleitor) {
             this.eleitor = eleitor
             val nome = "${eleitor.codigo} - ${eleitor.nome}"
-            campoInicial.text = eleitor.nome.first().toUpperCase().toString()
+            try {
+                campoInicial.text = eleitor.nome.trim().first().toUpperCase().toString()
+            } catch (e: Exception) {
+                campoInicial.text = "-"
+            }
             campoNome.text = nome
             campoSetor.text = eleitor.setor
             campoEndereco.text = eleitor.endereco

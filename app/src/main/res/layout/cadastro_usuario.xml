@@ -18,10 +18,10 @@
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome"
-            android:inputType="number"
+            android:hint="Login"
             android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -39,6 +39,7 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Senha"
@@ -60,6 +61,7 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextConfirmarSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirmar senha"
@@ -76,5 +78,16 @@
         app:layout_constraintEnd_toEndOf="@id/cadastro_usuario_confirma_senha"
         app:layout_constraintStart_toStartOf="@id/cadastro_usuario_confirma_senha"
         app:layout_constraintTop_toBottomOf="@id/cadastro_usuario_confirma_senha" />
+
+    <ProgressBar
+        android:id="@+id/progressBarUsuario"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/cadastro_usuario_botao_cadastrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cadastro_usuario_botao_cadastrar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

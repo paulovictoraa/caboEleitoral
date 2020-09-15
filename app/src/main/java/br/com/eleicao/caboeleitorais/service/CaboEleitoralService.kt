@@ -1,8 +1,9 @@
 package br.com.eleicao.caboeleitorais.service
 
-import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import br.com.eleicao.caboeleitorais.model.Login
 import br.com.eleicao.caboeleitorais.model.Token
+import br.com.eleicao.caboeleitorais.model.UsuarioResponse
+import br.com.eleicao.caboeleitorais.model.eleitor.Eleitor
 import retrofit2.http.*
 
 interface CaboEleitoralService {
@@ -18,5 +19,8 @@ interface CaboEleitoralService {
 
     @POST("cadastro/{id}")
     suspend fun salvar(@Path("id") id: String, @Body eleitor: Eleitor): Eleitor
+
+    @POST("cadastro_usuario")
+    suspend fun salvarUsuario(@Body login: Login): UsuarioResponse
 
 }

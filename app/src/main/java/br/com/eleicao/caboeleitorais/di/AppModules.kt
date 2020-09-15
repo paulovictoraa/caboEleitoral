@@ -13,6 +13,7 @@ import br.com.eleicao.caboeleitorais.model.eleitor.EleitorPersistence
 import br.com.eleicao.caboeleitorais.repository.EleitorRepository
 import br.com.eleicao.caboeleitorais.repository.LoginRepository
 import br.com.eleicao.caboeleitorais.repository.SetorRepository
+import br.com.eleicao.caboeleitorais.repository.UsuarioRepository
 import br.com.eleicao.caboeleitorais.service.AppService
 import br.com.eleicao.caboeleitorais.ui.fragment.DetalhesEleitorFragment
 import br.com.eleicao.caboeleitorais.ui.fragment.ListaEleitoresFragment
@@ -99,6 +100,7 @@ val daoModule = module {
     single { get<AppDatabase>().eleitorDao() }
     single { get<AppDatabase>().setorDao() }
     single { EleitorRepository(get(), get()) }
+    single { UsuarioRepository(get()) }
     single { LoginRepository(get(), get()) }
     single { SetorRepository(get()) }
     single<SharedPreferences> { PreferenceManager.getDefaultSharedPreferences(get()) }
@@ -118,6 +120,7 @@ val viewModelModule = module {
     viewModel { CadastroEleitorViewModel(get(), get()) }
     viewModel { FiltroDialogViewModel(get()) }
     viewModel { SplashViewModel(get(), get()) }
+    viewModel { CadastroUsuarioViewModel(get()) }
 }
 
 val serviceModule = module {
